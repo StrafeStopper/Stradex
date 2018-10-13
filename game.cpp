@@ -13,6 +13,8 @@
 #include <string>
 #include <cmath>
 
+//comment
+
 double x = 20;
 double y = 20;
 
