@@ -11,8 +11,6 @@
 #include "main.h"
 #include "init.h"
 #include "load.h"
-//#include <conio.h>
-//#include <Windows.h>
 #include <string>
 #include <cmath>
 

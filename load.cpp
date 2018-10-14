@@ -11,8 +11,6 @@
 #include "init.h"
 #include "load.h"
 #include "game.h"
-//#include <conio.h>
-//#include <Windows.h>
 #include <string>
 #include <cmath>
 
