@@ -81,7 +81,7 @@ class mButton
 public:
 	mButton();
 	void setPosition(int x, int y);
-	void handleMouseEvent(SDL_Event* e);
+	void handleMouseEvent(SDL_Event* e, int buttonName);
 	void render();
 
 private:
@@ -106,13 +106,12 @@ extern player player1;
 extern cTexture startText;
 extern cTexture encounter;
 extern cTexture grabSword;
-extern cTexture playButton;
-extern cTexture optionsButton;
-extern cTexture quitButton;
 extern cTexture menuBackground;
 extern cTexture buttonsSprite;
 extern SDL_Rect buttonsClip[6];
-extern mButton buttons[3];
+extern mButton playButton;
+extern mButton optionsButton;
+extern mButton quitButton;
 
 
 

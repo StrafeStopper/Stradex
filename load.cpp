@@ -33,18 +33,17 @@ cTexture dungeon_floor;
 cTexture beowulf;
 cTexture giantSword;
 cTexture beowulfSword;
-cTexture playButton;
-cTexture optionsButton;
-cTexture quitButton;
 cTexture buttonsSprite;
 cTexture menuBackground;
 SDL_Rect buttonsClip[6];
-mButton buttons[3];
+mButton playButton;
+mButton optionsButton;
+mButton quitButton;
 
 enum buttonTypes
 {
-	BUTTON_R = 0;
-	BUTTON_I = 1;
+	BUTTON_R = 0,
+	BUTTON_I = 1
 };
 
 player player1;
@@ -213,25 +212,6 @@ void loadAssets()
 		printf("Failed to load image\n");
 	}
 
-
-	if(!playButton.loadFromFile("assets/playButton.png"))
-	{
-		printf("Failed to load image\n");
-	}
-
-
-	if(!optionsButton.loadFromFile("assets/optionsButton.png"))
-	{
-		printf("Failed to load image\n");
-	}
-
-
-	if(!quitButton.loadFromFile("assets/quitButton.png"))
-	{
-		printf("Failed to load image\n");
-	}
-
-
 	if(!menuBackground.loadFromFile("assets/abstract_wide.jpg"))
 	{
 		printf("Failed to load image\n");
@@ -305,7 +285,7 @@ void mButton::render()
 	buttonsSprite.render(mPos.x, mPos.y, &buttonsClip[mButtonCurrent], NULL, NULL, SDL_FLIP_NONE);
 }
 
-void mButton::handleMouseEvent(SDL_Event* e)
+void mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 {
 	 if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP )
 	 {
@@ -331,21 +311,74 @@ void mButton::handleMouseEvent(SDL_Event* e)
 
 			if(!inside)
 			{
-				mButtonCurrent = BUTTON_R;
+				switch(buttonName)
+				{
+					case 0:
+					mButtonCurrent = 0;
+					break;
+
+					case 1:
+					mButtonCurrent = 1;
+					break;
+
+					case 2:
+					mButtonCurrent = 2;
+					break;
+				}
+
 			} else
 			{
 			switch( e->type )
 			{
 				case SDL_MOUSEMOTION:
-			  mButtonCurrent = BUTTON_I;
+				switch(buttonName)
+				{
+					case 0:
+					mButtonCurrent = 3;
+					break;
+
+					case 1:
+					mButtonCurrent = 4;
+					break;
+
+					case 2:
+					mButtonCurrent = 5;
+					break;
+				}
 				break;
 
 				case SDL_MOUSEBUTTONDOWN:
-				mButtonCurrent = BUTTON_R;
+				switch(buttonName)
+				{
+					case 0:
+					mButtonCurrent = 0;
+					break;
+
+					case 1:
+					mButtonCurrent = 1;
+					break;
+
+					case 2:
+					mButtonCurrent = 2;
+					break;
+				}
 				break;
 
 				case SDL_MOUSEBUTTONUP:
-				mButtonCurrent = BUTTON_I;
+				switch(buttonName)
+				{
+					case 0:
+					mButtonCurrent = 3;
+					break;
+
+					case 1:
+					mButtonCurrent = 4;
+					break;
+
+					case 2:
+					mButtonCurrent = 5;
+					break;
+				}
 				break;
 	    }
       }

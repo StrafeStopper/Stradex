@@ -95,36 +95,47 @@ int menu()
     titleRect.y = 30;
     titleRect.w = 640;
     titleRect.h = 150;
-/*
-    SDL_Rect buttonsRect[3];
 
-    buttonsRect[0].x = 480;
-    buttonsRect[0].y = 260;
-    buttonsRect[0].w = 300;
-    buttonsRect[0].h = 100;
+    //play r
+    buttonsClip[ 0 ].x = 0;
+    buttonsClip[ 0 ].y = 0;
+    buttonsClip[ 0 ].w = BUTTON_WIDTH;
+    buttonsClip[ 0 ].h = BUTTON_HEIGHT;
 
-    buttonsRect[1].x = 480;
-    buttonsRect[1].y = 400;
-    buttonsRect[1].w = 300;
-    buttonsRect[1].h = 100;
+    //options r
+    buttonsClip[ 1 ].x = 0;
+    buttonsClip[ 1 ].y = 100;
+    buttonsClip[ 1 ].w = BUTTON_WIDTH;
+    buttonsClip[ 1 ].h = BUTTON_HEIGHT;
 
-    buttonsRect[2].x = 480;
-    buttonsRect[2].y = 540;
-    buttonsRect[2].w = 300;
-    buttonsRect[2].h = 100;
-    */
+    //quit r
+    buttonsClip[ 2 ].x = 0;
+    buttonsClip[ 2 ].y = 200;
+    buttonsClip[ 2 ].w = BUTTON_WIDTH;
+    buttonsClip[ 2 ].h = BUTTON_HEIGHT;
 
-    for( int i = 0; i < 6; ++i )
-    {
-      buttonsClip[ i ].x = 0;
-      buttonsClip[ i ].y = i * 200;
-      buttonsClip[ i ].w = BUTTON_WIDTH;
-      buttonsClip[ i ].h = BUTTON_HEIGHT;
-    }
+    //play i
+    buttonsClip[ 3 ].x = 301;
+    buttonsClip[ 3 ].y = 0;
+    buttonsClip[ 3 ].w = BUTTON_WIDTH;
+    buttonsClip[ 3 ].h = BUTTON_HEIGHT;
 
-    buttons[0].setPosition(480, 260);
-    buttons[1].setPosition(480, 400);
-    buttons[2].setPosition(480, 540);
+    //options i
+    buttonsClip[ 4 ].x = 301;
+    buttonsClip[ 4 ].y = 100;
+    buttonsClip[ 4 ].w = BUTTON_WIDTH;
+    buttonsClip[ 4 ].h = BUTTON_HEIGHT;
+
+    //quit i
+    buttonsClip[ 5 ].x = 301;
+    buttonsClip[ 5 ].y = 200;
+    buttonsClip[ 5 ].w = BUTTON_WIDTH;
+    buttonsClip[ 5 ].h = BUTTON_HEIGHT;
+
+
+    playButton.setPosition(480, 260);
+    optionsButton.setPosition(480, 400);
+    quitButton.setPosition(480, 540);
 
     SDL_ShowWindow(window);
 
@@ -136,19 +147,20 @@ int menu()
       {
           if( e.type == SDL_QUIT )
         {
-                quit = 1;
-        }
-            for( int i = 0; i < 3; ++i )
-            {
-              buttons[ i ].handleMouseEvent( &e );
-            }
+                menuLoop = 1;
+        } else {
+
+              playButton.handleMouseEvent( &e, 0 );
+              optionsButton.handleMouseEvent( &e, 1 );
+              quitButton.handleMouseEvent( &e, 2 );
+          }
         }
 
       menuBackground.render(0, 0, menuCLip, NULL, NULL, SDL_FLIP_NONE);
       title.render(320, 0, textClip, NULL, NULL, SDL_FLIP_NONE);
-      playButton.render(480, 260, buttonClip, NULL, NULL, SDL_FLIP_NONE);
-      optionsButton.render(480, 400, buttonClip, NULL, NULL, SDL_FLIP_NONE);
-      quitButton.render(480, 540, buttonClip, NULL, NULL, SDL_FLIP_NONE);
+      playButton.render();
+      optionsButton.render();
+      quitButton.render();
       SDL_RenderPresent(renderer);
     }
 
@@ -196,11 +208,6 @@ void level1()
     	    {
     		          quit = 1;
     		  }
-              for( int i = 0; i < TOTAL_BUTTONS; ++i )
-              {
-                buttons[ i ].handleMouseEvent( &e );
-              }
-
               player1.handleEvent(e);
           }
 
