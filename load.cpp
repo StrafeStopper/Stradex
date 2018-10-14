@@ -38,7 +38,7 @@ cTexture optionsButton;
 cTexture quitButton;
 cTexture buttonsSprite;
 cTexture menuBackground;
-mButton buttonsRect[6];
+SDL_Rect buttonsClip[6];
 player player1;
 
 int playerW;
@@ -294,7 +294,7 @@ void mButton::setPostition(int x, int y)
 
 void mButton::render()
 {
-	buttonsSprite.render(mPos.x, mPos.y, &buttonsRect[mButtonCurrent], NULL, NULL, SDL_FLIP_NONE)
+	buttonsSprite.render(mPos.x, mPos.y, &buttonsClip[mButtonCurrent], NULL, NULL, SDL_FLIP_NONE);
 }
 
 void mButton::handleMouseEvent(SDL_Event* e)
@@ -340,6 +340,7 @@ void mButton::handleMouseEvent(SDL_Event* e)
 				break;
 	    }
       }
+}
 }
 
 

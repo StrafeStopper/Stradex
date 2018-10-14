@@ -112,7 +112,7 @@ extern cTexture optionsButton;
 extern cTexture quitButton;
 extern cTexture menuBackground;
 extern cTexture buttonsSprite;
-extern mButton buttonsRect[6];
+extern SDL_Rect buttonsClip[6];
 
 
 

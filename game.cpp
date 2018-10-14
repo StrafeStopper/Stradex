@@ -173,7 +173,7 @@ void level1()
     		  }
               for( int i = 0; i < TOTAL_BUTTONS; ++i )
               {
-                buttonsRect[ i ].handleMouseEvent( &e );
+                buttonsClip[ i ].handleMouseEvent( &e );
               }
 
               player1.handleEvent(e);
