@@ -216,6 +216,9 @@ bool init()
 		printf("Setting render draw color...\n");
 		SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 		printf("Render draw color set!\n");
+
+
+
 	}
 	printf("SDL boot compleate!\n\n");
 	return boot;

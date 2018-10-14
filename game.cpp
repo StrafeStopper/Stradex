@@ -114,11 +114,36 @@ int menu()
     buttonsRect[2].h = 100;
     */
 
+    for( int i = 0; i < 6; ++i )
+    {
+      buttonsClip[ i ].x = 0;
+      buttonsClip[ i ].y = i * 200;
+      buttonsClip[ i ].w = BUTTON_WIDTH;
+      buttonsClip[ i ].h = BUTTON_HEIGHT;
+    }
+
+    buttons[0].setPosition(480, 260);
+    buttons[1].setPosition(480, 400);
+    buttons[2].setPosition(480, 540);
+
     SDL_ShowWindow(window);
 
     while(!menuLoop)
     {
       SDL_RenderClear(renderer);
+
+      while( SDL_PollEvent( &e ) != 0 )
+      {
+          if( e.type == SDL_QUIT )
+        {
+                quit = 1;
+        }
+            for( int i = 0; i < 3; ++i )
+            {
+              buttons[ i ].handleMouseEvent( &e );
+            }
+        }
+
       menuBackground.render(0, 0, menuCLip, NULL, NULL, SDL_FLIP_NONE);
       title.render(320, 0, textClip, NULL, NULL, SDL_FLIP_NONE);
       playButton.render(480, 260, buttonClip, NULL, NULL, SDL_FLIP_NONE);
@@ -173,7 +198,7 @@ void level1()
     		  }
               for( int i = 0; i < TOTAL_BUTTONS; ++i )
               {
-                buttonsClip[ i ].handleMouseEvent( &e );
+                buttons[ i ].handleMouseEvent( &e );
               }
 
               player1.handleEvent(e);

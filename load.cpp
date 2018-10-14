@@ -39,6 +39,14 @@ cTexture quitButton;
 cTexture buttonsSprite;
 cTexture menuBackground;
 SDL_Rect buttonsClip[6];
+mButton buttons[3];
+
+enum buttonTypes
+{
+	BUTTON_R = 0;
+	BUTTON_I = 1;
+};
+
 player player1;
 
 int playerW;
@@ -214,7 +222,7 @@ void loadAssets()
 
 	if(!optionsButton.loadFromFile("assets/optionsButton.png"))
 	{
-		printf("Failed to load image\m");
+		printf("Failed to load image\n");
 	}
 
 
@@ -286,7 +294,7 @@ mButton::mButton()
 	mButtonCurrent = 1;
 }
 
-void mButton::setPostition(int x, int y)
+void mButton::setPosition(int x, int y)
 {
 	mPos.x = x;
 	mPos.y = y;
@@ -303,40 +311,41 @@ void mButton::handleMouseEvent(SDL_Event* e)
 	 {
 		 int x, y; SDL_GetMouseState( &x, &y );
 		 bool inside = 1;
+
 		  if( x < mPos.x )
 			{
-				inside = false;
+				inside = 0;
 			}  else
 			if( x > mPos.x + BUTTON_WIDTH )
 			{
-				inside = false;
+				inside = 0;
 			} else
 			if( y < mPos.y )
 			{
-				inside = false;
+				inside = 0;
 			} else
 			if( y > mPos.y + BUTTON_HEIGHT )
 			{
-				inside = false;
+				inside = 0;
 			}
 
 			if(!inside)
 			{
-				mButtonCurrent = 1;
+				mButtonCurrent = BUTTON_R;
 			} else
 			{
 			switch( e->type )
 			{
 				case SDL_MOUSEMOTION:
-			mButtonCurrent = 1;
+			  mButtonCurrent = BUTTON_I;
 				break;
 
 				case SDL_MOUSEBUTTONDOWN:
-				mButtonCurrent = 1;
+				mButtonCurrent = BUTTON_R;
 				break;
 
 				case SDL_MOUSEBUTTONUP:
-				mButtonCurrent = 1;
+				mButtonCurrent = BUTTON_I;
 				break;
 	    }
       }

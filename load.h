@@ -80,7 +80,7 @@ class mButton
 {
 public:
 	mButton();
-	void setPostition(int x, int y);
+	void setPosition(int x, int y);
 	void handleMouseEvent(SDL_Event* e);
 	void render();
 
@@ -94,7 +94,6 @@ extern TTF_Font *sFont;
 extern SDL_Rect spriteClips[4];
 extern SDL_Rect backRect[1];
 extern SDL_Rect buttonBox[1];
-extern SDL_Rect mom[1];
 extern SDL_Rect p[1];
 extern SDL_Rect b_s[1];
 extern SDL_Rect text_[1];
@@ -113,6 +112,8 @@ extern cTexture quitButton;
 extern cTexture menuBackground;
 extern cTexture buttonsSprite;
 extern SDL_Rect buttonsClip[6];
+extern mButton buttons[3];
+
 
 
 
