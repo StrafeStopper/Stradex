@@ -170,8 +170,8 @@ int menu()
 
 void level1()
 {
-    loadAssets();
-    menu();
+    //loadAssets();
+    //menu();
     SDL_ShowWindow(window);
     SDL_RenderClear(renderer);
     startTextBox.x = 300;

@@ -352,6 +352,7 @@ void mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 				{
 					case 0:
 					mButtonCurrent = 0;
+					level1();
 					break;
 
 					case 1:
@@ -360,6 +361,7 @@ void mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 
 					case 2:
 					mButtonCurrent = 2;
+					close();
 					break;
 				}
 				break;

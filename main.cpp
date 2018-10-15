@@ -39,6 +39,7 @@ int main(int argc, char* args[])
 	printf("Light:~# ");
 	std::cin >> command;
 
+
 while(cmdLoop)
 {
 	if(command == "level1")
@@ -50,8 +51,9 @@ while(cmdLoop)
 	else
 	if( command == "init")
 	{
-		cmdLoop = 1;
+		cmdLoop = 0;
 	 	init();
+		loadAssets();
 		command = " ";
 	}
 	else
@@ -71,6 +73,7 @@ while(cmdLoop)
 		printf("Light:~# ");
 		std::cin >> command;
 	}
+		menu();
 }
 
 
