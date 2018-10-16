@@ -14,8 +14,8 @@ extern const Uint8* keyState;
 extern bool quit;
 
 
+extern bool menu();
 extern void level1();
-extern int menu();
 
 extern const Uint8* keyState;
 

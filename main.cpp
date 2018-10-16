@@ -35,12 +35,19 @@ bool cmdLoop = 1;
 
 int main(int argc, char* args[])
 {
-	printf("Welcome to the <Light> development project!\nCreated and developed by Andrew Johnson \"Strafe_Stopper\"\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
-	printf("Light:~# ");
-	std::cin >> command;
+	printf("Welcome to the <Light> development project!\nCreated and developed by Strafe_Stopper\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
+	///printf("Light:~# ");
+	//std::cin >> command;
+	init();
+	loadAssets();
 
+	if(menu())
+	{
+		close();
+		return 1;
+	}
 
-while(cmdLoop)
+/*while(cmdLoop)
 {
 	if(command == "level1")
 	{
@@ -74,7 +81,7 @@ while(cmdLoop)
 		std::cin >> command;
 	}
 		menu();
-}
+}*/
 
 
 	//init();

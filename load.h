@@ -81,7 +81,7 @@ class mButton
 public:
 	mButton();
 	void setPosition(int x, int y);
-	void handleMouseEvent(SDL_Event* e, int buttonName);
+	bool handleMouseEvent(SDL_Event* e, int buttonName);
 	void render();
 
 private:

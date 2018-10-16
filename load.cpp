@@ -285,7 +285,7 @@ void mButton::render()
 	buttonsSprite.render(mPos.x, mPos.y, &buttonsClip[mButtonCurrent], NULL, NULL, SDL_FLIP_NONE);
 }
 
-void mButton::handleMouseEvent(SDL_Event* e, int buttonName)
+bool mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 {
 	 if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP )
 	 {
@@ -352,16 +352,19 @@ void mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 				{
 					case 0:
 					mButtonCurrent = 0;
-					level1();
+					return 1;
+					//level1();
 					break;
 
 					case 1:
 					mButtonCurrent = 1;
+					return 1;
 					break;
 
 					case 2:
 					mButtonCurrent = 2;
-					close();
+					return 1;
+					//close();
 					break;
 				}
 				break;
@@ -385,6 +388,7 @@ void mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 	    }
       }
 }
+return 0;
 }
 
 
