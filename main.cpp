@@ -91,7 +91,7 @@ int main(int argc, char* args[])
 	//level1();
 
 
-	//close();
+	close();
 	printf("SDL successfully shutdown!\n\nPress [enter] to exit...\n");
 	std::cin.get();
 	printf("Exiting <Light>...\n");
