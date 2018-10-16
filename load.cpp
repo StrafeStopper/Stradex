@@ -364,8 +364,8 @@ bool mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 					case 2:
 					mButtonCurrent = 2;
 					return 1;
-					SDL_HideWindow(window);
-					close();
+					//SDL_HideWindow(window);
+					//close();
 					break;
 				}
 				break;

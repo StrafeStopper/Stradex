@@ -41,10 +41,8 @@ int main(int argc, char* args[])
 	init();
 	loadAssets();
 
-	if(menu())
-	{
-		return 0;
-	}
+	menu();
+	printf("stops here\n");
 
 /*while(cmdLoop)
 {
@@ -93,7 +91,7 @@ int main(int argc, char* args[])
 	//level1();
 
 
-	close();
+	//close();
 	printf("SDL successfully shutdown!\n\nPress [enter] to exit...\n");
 	std::cin.get();
 	printf("Exiting <Light>...\n");

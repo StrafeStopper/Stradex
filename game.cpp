@@ -237,9 +237,11 @@ void level1()
                   {
                     SDL_HideWindow(window);
                     close();
+                    exit(0);
                     menuLoop = 1;
                     //quit = 1;
-                    return 1;
+                    //return 0;
+
                   }
               }
             }
@@ -251,6 +253,6 @@ void level1()
           quitButton.render();
           SDL_RenderPresent(renderer);
         }
-          return 1;
+          return 0;
 
     }
