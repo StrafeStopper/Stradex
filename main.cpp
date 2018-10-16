@@ -36,13 +36,14 @@ bool cmdLoop = 1;
 int main(int argc, char* args[])
 {
 	printf("Welcome to the <Light> development project!\nCreated and developed by Strafe_Stopper\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
-	///printf("Light:~# ");
-	//std::cin >> command;
 	init();
 	loadAssets();
-
 	menu();
-	//printf("stops here\n");
+
+
+	///printf("Light:~# ");
+	//std::cin >> command;
+
 
 /*while(cmdLoop)
 {
@@ -79,16 +80,6 @@ int main(int argc, char* args[])
 	}
 		menu();
 }*/
-
-
-	//init();
-	//printf("Loading image assets in loadSurface(std::string path)...\n");
-	//loadAssets();
-	//printf("SDL boot compleate!\n\n");
-	//SDL_RenderClear(renderer);
-
-
-	//level1();
 
 
 	close();
