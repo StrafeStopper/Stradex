@@ -42,7 +42,7 @@ int main(int argc, char* args[])
 	loadAssets();
 
 	menu();
-	printf("stops here\n");
+	//printf("stops here\n");
 
 /*while(cmdLoop)
 {

@@ -229,10 +229,15 @@ void close()
 	printf("\nShutting down...\nDetroying textures and renderers...\n");
 	SDL_DestroyTexture(texture);
 	texture = NULL;
+	dungeon_floor.free();
+	beowulf.free();
+	title.free();
+	menuBackground.free();
+	buttonsSprite.free();
 	SDL_DestroyRenderer(renderer);
 	renderer = NULL;
 	printf("SDL surfaces, textures, and renderers freed from memory!\nDestroying SDL window...\n");
-	//SDL_DestroyWindow(window);
+	SDL_DestroyWindow(window);
 
 	gWindows[0].free();
 	gWindows[1].free();

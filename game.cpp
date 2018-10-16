@@ -237,6 +237,9 @@ void level1()
                   {
                     SDL_HideWindow(window);
                     close();
+                    printf("SDL successfully shutdown!\n\nPress [enter] to exit...\n");
+                    std::cin.get();
+                    printf("Exiting <Light>...\n");
                     exit(0);
                     menuLoop = 1;
                     //quit = 1;
