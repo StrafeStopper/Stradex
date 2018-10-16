@@ -154,10 +154,12 @@ void level1()
 		SDL_Delay(1);
     }
 }
+
+
     bool menu()
     {
 
-
+        //quit = 0;
         bool menuLoop = 0;
 
         SDL_Rect titleRect;
@@ -228,12 +230,15 @@ void level1()
 
                   if(optionsButton.handleMouseEvent( &e, 1 ))
                   {
-                    //options 
+                    //options
                   }
 
                   if(quitButton.handleMouseEvent( &e, 2 ))
                   {
+                    SDL_HideWindow(window);
+                    close();
                     menuLoop = 1;
+                    //quit = 1;
                     return 1;
                   }
               }
@@ -246,6 +251,6 @@ void level1()
           quitButton.render();
           SDL_RenderPresent(renderer);
         }
-
+          return 1;
 
     }

@@ -364,7 +364,8 @@ bool mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 					case 2:
 					mButtonCurrent = 2;
 					return 1;
-					//close();
+					SDL_HideWindow(window);
+					close();
 					break;
 				}
 				break;
@@ -423,6 +424,8 @@ void player::handleEvent( SDL_Event& e )
 		case SDLK_d: velX += PLAYER_VEL;
 			flipType = SDL_FLIP_NONE;
 			break;
+		case SDLK_q: menu();
+		break;
 
 		    }
     }

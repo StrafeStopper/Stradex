@@ -43,8 +43,7 @@ int main(int argc, char* args[])
 
 	if(menu())
 	{
-		close();
-		return 1;
+		return 0;
 	}
 
 /*while(cmdLoop)
