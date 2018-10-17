@@ -17,9 +17,13 @@
 
 void loadText()
 {
-  std::ifstream map("assets/text.map");
+  std::ifstream map("assets/text.txt");
+
   if (map == NULL)
   printf("Failed to load text file\n");
 
-  std::cout << map  << std::endl;
+  std::string textOutput;
+  map >> textOutput;
+
+  std::cout << textOutput  << std::endl;
 }
