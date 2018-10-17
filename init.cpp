@@ -11,6 +11,7 @@
 #include "main.h"
 #include "init.h"
 #include "load.h"
+#include "fileIO.h"
 #include <string>
 #include <cmath>
 

@@ -8,6 +8,7 @@
 #include "main.h"
 #include "init.h"
 #include "load.h"
+#include "fileIO.h"
 #include <string>
 #include <cmath>
 
@@ -106,8 +107,6 @@ void level1()
     swordBox.y = 600;
     swordBox.w = 63;
     swordBox.h = 64;
-
-
 
     SDL_RenderClear(renderer);
     int swordLoop = 0;
