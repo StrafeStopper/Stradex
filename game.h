@@ -13,8 +13,8 @@ extern const Uint8* keyState;
 
 extern bool quit;
 
+extern SDL_Event e;
 
-extern bool menu();
 extern void level1();
 
 extern const Uint8* keyState;

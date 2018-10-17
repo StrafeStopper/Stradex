@@ -12,6 +12,7 @@
 #include "load.h"
 #include "game.h"
 #include "fileIO.h"
+#include "menu.h"
 #include <string>
 #include <cmath>
 
@@ -39,7 +40,7 @@ int main(int argc, char* args[])
 	printf("Welcome to the <Light> development project!\nCreated and developed by Strafe_Stopper\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
 	init();
 	loadAssets();
-	//menu();
+	menu();
 	loadText();
 
 

@@ -11,6 +11,7 @@
 #include "init.h"
 #include "load.h"
 #include "game.h"
+#include "menu.h"
 #include "fileIO.h"
 #include <string>
 #include <cmath>
@@ -20,7 +21,6 @@ TTF_Font *sFont = NULL;
 SDL_Rect backRect[1];
 SDL_Rect wulf[1];
 SDL_Rect buttonBox[1];
-SDL_Rect b_s[1];
 SDL_Rect text_[1];
 SDL_Rect menuBackRect[1];
 SDL_Color textColor = { 255, 0, 0 };
@@ -207,12 +207,6 @@ void loadAssets()
 		printf("Failed to load image\n");
 	}
 
-
-	if(!giantSword.loadFromFile("assets/sword.png"))
-	{
-		printf("Failed to load image\n");
-	}
-
 	if(!menuBackground.loadFromFile("assets/abstract_wide.jpg"))
 	{
 		printf("Failed to load image\n");
@@ -239,11 +233,6 @@ void loadAssets()
 	buttonBox[0].y = 0;
 	buttonBox[0].w = 300;
 	buttonBox[0].h = 100;
-
-	b_s[0].x = 0;
-	b_s[0].y = 0;
-	b_s[0].w = 98;
-	b_s[0].h = 118;
 
 	text_[0].x = 0;
 	text_[0].y = 0;

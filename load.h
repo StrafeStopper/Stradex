@@ -94,8 +94,6 @@ extern TTF_Font *sFont;
 extern SDL_Rect spriteClips[4];
 extern SDL_Rect backRect[1];
 extern SDL_Rect buttonBox[1];
-extern SDL_Rect p[1];
-extern SDL_Rect b_s[1];
 extern SDL_Rect text_[1];
 extern SDL_Rect menuBackRect[1];
 extern SDL_Color textColor;
