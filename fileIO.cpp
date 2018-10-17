@@ -15,16 +15,16 @@
 #include <string>
 #include <cmath>
 
+using namespace std;
 
 void loadText()
 {
-  std::ifstream map("settings/window_size.txt");
+  fstream map;
 
-  if (map == NULL)
-  printf("Failed to load text file\n");
-
-  std::string textOutput;
-  map >> textOutput;
-
-  std::cout << textOutput  << std::endl;
+  map.open("settings/window_size.txt");
+  string t1, t2;
+  map >> t1;
+  map >> t2;
+  cout << t1 << endl << t2 << endl;
+  map.close();
 }
