@@ -3,8 +3,8 @@
 #define INIT_H
 
 
-extern const int SCREEN_WIDTH;
-extern const int SCREEN_HEIGHT;
+extern int SCREEN_WIDTH;
+extern int SCREEN_HEIGHT;
 
 extern SDL_Surface* currentSurface;
 extern SDL_Window* window;

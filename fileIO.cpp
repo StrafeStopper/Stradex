@@ -22,9 +22,12 @@ void loadText()
   fstream map;
 
   map.open("settings/window_size.txt");
-  string t1, t2;
+  int t1, t2;
   map >> t1;
   map >> t2;
+
+  SCREEN_WIDTH = t1;
+  SCREEN_HEIGHT = t2;
   cout << t1 << endl << t2 << endl;
   map.close();
 }

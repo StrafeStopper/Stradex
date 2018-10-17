@@ -21,8 +21,8 @@ SDL_Window* window = NULL;
 cWindow gWindows[ 2 ];
 
 
-const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIGHT = 720;
+int SCREEN_WIDTH = 1280;
+int SCREEN_HEIGHT = 720;
 
 const int TOTAL_WINDOWS = 2;
 
@@ -176,7 +176,7 @@ bool init()
 	}
 	else {
 		printf("SDL initialized!\n");
-		window = SDL_CreateWindow("Light Development Project", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_HIDDEN | SDL_WINDOW_OPENGL);
+		window = SDL_CreateWindow("Light Development Project", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_HIDDEN | SDL_WINDOW_OPENGL);
 		if(window == NULL)
 		{
 			printf("SDL failed to create window\n");
