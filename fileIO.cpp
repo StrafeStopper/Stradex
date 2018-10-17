@@ -18,7 +18,7 @@
 
 void loadText()
 {
-  std::ifstream map("assets/text.txt");
+  std::ifstream map("settings/window_size.txt");
 
   if (map == NULL)
   printf("Failed to load text file\n");
