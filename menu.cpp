@@ -15,6 +15,9 @@
 #include <cmath>
 
 
+SDL_Rect* textClip = &text_[0];
+SDL_Rect* menuCLip = &menuBackRect[0];
+
 bool menu()
 {
     bool menuLoop = 0;
