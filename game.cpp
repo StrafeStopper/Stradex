@@ -26,6 +26,9 @@ const Uint8* keyState = SDL_GetKeyboardState( NULL );
 
 SDL_Rect* backround = &backRect[0];
 SDL_Rect* buttonClip = &buttonBox[0];
+SDL_Rect* greySquare = &spriteClips[0];
+SDL_Rect* brownSquare = &spriteClips[1];
+SDL_Rect* blueSquare = &spriteClips[2];
 
 bool quit = 0;
 SDL_Event e;
@@ -33,7 +36,7 @@ SDL_Event e;
 SDL_Rect startTextBox;
 SDL_Rect screenSpace;
 SDL_Rect wulfBox;
-SDL_Rect swordBox;
+SDL_Rect zeroClip;
 
 
 
@@ -102,19 +105,23 @@ void level1()
     screenSpace.h = SCREEN_HEIGHT;
 
 
-    swordBox.x = 1100;
-    swordBox.y = 600;
-    swordBox.w = 63;
-    swordBox.h = 64;
+    zeroClip.x = 0;
+    zeroClip.y = 0;
+    zeroClip.w = 0;
+    zeroClip.h = 0;
 
     SDL_RenderClear(renderer);
     int swordLoop = 0;
 
     while (!quit)
     {
-        SDL_RenderSetViewport(renderer, &screenSpace);
+      //  SDL_RenderSetViewport(renderer, &screenSpace);
         SDL_RenderClear(renderer);
         dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
+        basicSprite.render(200, 20, blueSquare, NULL, NULL, SDL_FLIP_NONE);
+        basicSprite.render(220, 40, blueSquare, NULL, NULL, SDL_FLIP_NONE);
+        basicSprite.render(240, 60, blueSquare, NULL, NULL, SDL_FLIP_NONE);
+        basicSprite.render(260, 80, blueSquare, NULL, NULL, SDL_FLIP_NONE);
 
 
         while( SDL_PollEvent( &e ) != 0 )
@@ -128,7 +135,11 @@ void level1()
 
 
 
-    player1.move(swordBox);
+    player1.move(zeroClip);
+    if(checkCollision(player1.collider, spriteClips[2]))
+    {
+      player1.clipStop();
+    }
 
 		x = player1.getX();
 		y = player1.getY();
@@ -142,7 +153,7 @@ void level1()
 
 
 
-    SDL_RenderSetViewport(renderer, &screenSpace);
+    //SDL_RenderSetViewport(renderer, &screenSpace);
 
 		player1.render();
 

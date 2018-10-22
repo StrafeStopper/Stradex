@@ -67,12 +67,16 @@ public:
 
 	void render();
 
+	void clipStop();
+
+	SDL_Rect collider;
+
 private:
 	double posX, posY;
 
 	double velX, velY;
 
-	SDL_Rect collider;
+
 };
 
 
@@ -91,7 +95,7 @@ private:
 
 extern SDL_Texture* loadTexture(std::string path);
 extern TTF_Font *sFont;
-extern SDL_Rect spriteClips[4];
+extern SDL_Rect spriteClips[3];
 extern SDL_Rect backRect[1];
 extern SDL_Rect buttonBox[1];
 extern SDL_Rect text_[1];
@@ -107,6 +111,7 @@ extern SDL_Rect buttonsClip[6];
 extern mButton playButton;
 extern mButton optionsButton;
 extern mButton quitButton;
+extern cTexture basicSprite;
 
 
 

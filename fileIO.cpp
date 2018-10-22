@@ -21,7 +21,7 @@ int loadText(std::string path)
 {
   fstream map;
 
-  map.open(path);
+  //map.open(path);
   int t1, t2;
   map >> t1;
   map >> t2;

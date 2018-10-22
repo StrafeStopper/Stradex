@@ -19,6 +19,7 @@
 SDL_Texture* loadTexture(std::string path);
 TTF_Font *sFont = NULL;
 SDL_Rect backRect[1];
+SDL_Rect spriteClips[3];
 SDL_Rect wulf[1];
 SDL_Rect buttonBox[1];
 SDL_Rect text_[1];
@@ -36,6 +37,7 @@ cTexture giantSword;
 cTexture beowulfSword;
 cTexture buttonsSprite;
 cTexture menuBackground;
+cTexture basicSprite;
 SDL_Rect buttonsClip[6];
 mButton playButton;
 mButton optionsButton;
@@ -217,6 +219,8 @@ void loadAssets()
 		printf("Failed to load image\n");
 	}
 
+	if(!basicSprite.loadFromFile("assets/basicSprite.png"))
+	printf("Failed to load image\n");
 
 	backRect[0].x = 0;
 	backRect[0].y = 0;
@@ -243,6 +247,22 @@ void loadAssets()
 	menuBackRect[0].y = 180;
 	menuBackRect[0].w = 1280;
 	menuBackRect[0].h = 720;
+
+
+	spriteClips[0].x = 0;
+	spriteClips[0].y = 0;
+	spriteClips[0].w = 20;
+	spriteClips[0].h = 20;
+
+	spriteClips[1].x = 20;
+	spriteClips[1].y = 0;
+	spriteClips[1].w = 20;
+	spriteClips[1].h = 20;
+
+	spriteClips[2].x = 40;
+	spriteClips[2].y = 0;
+	spriteClips[2].w = 20;
+	spriteClips[2].h = 20;
 
 
 
@@ -454,6 +474,12 @@ bool player::move( SDL_Rect& box )
 		//clip = 1;
     }
 	return 1;
+}
+
+void player::clipStop()
+{
+	velY = 0;
+	velX = 0;
 }
 
 void player::render()
