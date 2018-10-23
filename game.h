@@ -17,6 +17,7 @@ extern SDL_Event e;
 
 extern void level1();
 
+
 extern const Uint8* keyState;
 
 extern double angle;
