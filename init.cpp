@@ -18,152 +18,14 @@
 
 SDL_Renderer* renderer = NULL;
 SDL_Window* window = NULL;
-cWindow gWindows[ 2 ];
 
 
 int SCREEN_WIDTH = 1280;
 int SCREEN_HEIGHT = 720;
 
-const int TOTAL_WINDOWS = 2;
+int LEVEL_WIDTH = 2000;
+int LEVEL_HEIGHT = 2000;
 
-cWindow::cWindow()
-{
-	pWindow = NULL;
-	pWindowID = -1;
-	mouseFocus = 0;
-	keyboardFocus = 0;
-	fullScreen = 0;
-	minimized = 0;
-	width = 0;
-	height = 0;
-}
-
-bool cWindow::init(int W_WIDTH, int W_HEIGHT)
-{
-	pWindow = SDL_CreateWindow("Light Development Project", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, W_WIDTH, W_HEIGHT, SDL_WINDOW_HIDDEN | SDL_WINDOW_OPENGL);
-	if(pWindow != NULL)
-	{
-		mouseFocus = 1;
-		keyboardFocus = 1;
-		width = SCREEN_WIDTH;
-		height = SCREEN_HEIGHT;
-
-		shown = true;
-	}
-	return pWindow != NULL;
-}
-
-
-void cWindow::handleEvent(SDL_Event& e)
-{
-	if(e.type == SDL_WINDOWEVENT)
-	{
-
-		switch(e.window.event)
-		{
-	            case SDL_WINDOWEVENT_SHOWN:
-	            shown = true;
-	            break;
-
-	            case SDL_WINDOWEVENT_HIDDEN:
-	            shown = false;
-	            break;
-
-	            case SDL_WINDOWEVENT_SIZE_CHANGED:
-	            width = e.window.data1;
-	            height = e.window.data2;
-	            SDL_RenderPresent( pRenderer );
-	            break;
-
-	            case SDL_WINDOWEVENT_EXPOSED:
-	            SDL_RenderPresent( pRenderer );
-	            break;
-
-	            case SDL_WINDOWEVENT_ENTER:
-	            mouseFocus = true;
-	            break;
-
-	            case SDL_WINDOWEVENT_LEAVE:
-	            mouseFocus = false;
-	            break;
-
-	            case SDL_WINDOWEVENT_FOCUS_GAINED:
-	            keyboardFocus = true;
-	            break;
-
-	            case SDL_WINDOWEVENT_FOCUS_LOST:
-	            keyboardFocus = false;
-	            break;
-
-	            case SDL_WINDOWEVENT_MINIMIZED:
-	            minimized = true;
-	            break;
-
-	            case SDL_WINDOWEVENT_MAXIMIZED:
-	            minimized = false;
-	            break;
-
-	            case SDL_WINDOWEVENT_RESTORED:
-	            minimized = false;
-	            break;
-
-				case SDL_WINDOWEVENT_CLOSE:
-				SDL_HideWindow( pWindow );
-				break;
-		}
-	}
-}
-
-
-int cWindow::getWidth()
-{
-    return width;
-}
-
-int cWindow::getHeight()
-{
-    return height;
-}
-
-bool cWindow::hasMouseFocus()
-{
-    return mouseFocus;
-}
-
-bool cWindow::hasKeyboardFocus()
-{
-    return keyboardFocus;
-}
-
-bool cWindow::isMinimized()
-{
-    return minimized;
-}
-
-void cWindow::focus()
-{
-	if(!shown)
-	{
-		SDL_ShowWindow(pWindow);
-	}
-	SDL_RaiseWindow(pWindow);
-}
-
-void cWindow::render()
-{
-		SDL_RenderClear(pRenderer);
-		SDL_RenderPresent(pRenderer);
-
-}
-void cWindow::free()
-{
-	SDL_DestroyWindow(pWindow);
-
-	mouseFocus = false;
-	keyboardFocus = false;
-	width = 0;
-	height = 0;
-}
 
 bool init()
 {
@@ -241,8 +103,6 @@ void close()
 	printf("SDL surfaces, textures, and renderers freed from memory!\nDestroying SDL window...\n");
 	SDL_DestroyWindow(window);
 
-	gWindows[0].free();
-	gWindows[1].free();
 	printf("SDL window detroyed!\n");
 	printf("Shutting down TTF...\n");
 	title.free();
