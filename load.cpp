@@ -32,7 +32,7 @@ int TOTAL_BUTTONS = 3;
 
 cTexture title;
 cTexture dungeon_floor;
-cTexture beowulf;
+cTexture playerMain;
 cTexture giantSword;
 cTexture beowulfSword;
 cTexture buttonsSprite;
@@ -204,7 +204,7 @@ void loadAssets()
 	}
 
 
-	if(!beowulf.loadFromFile("assets/beowulf.png"))
+	if(!playerMain.loadFromFile("assets/beowulf.png"))
 	{
 		printf("Failed to load image\n");
 	}
@@ -482,9 +482,32 @@ void player::clipStop()
 	velX = 0;
 }
 
-void player::render()
+void player::render(SDL_Rect& camera)
 {
-	beowulf.render(posX, posY, wulfClip, angle, NULL, flipType);
+	playerMain.render( collider.x - collider.x, collider.y - camera.y, wulfClip, angle, NULL, flipType);
+}
+
+void player::setCamera(SDL_Rect& camera)
+{
+	camera.x = ( collider.x + PLAYER_WIDTH / 2 ) - SCREEN_WIDTH / 2;
+	camera.y = ( collider.y + PLAYER_HEIGHT / 2 ) - SCREEN_HEIGHT / 2;
+
+	if( camera.x < 0 )
+	{
+		camera.x = 0;
+	}
+	if( camera.y < 0 )
+	{
+		camera.y = 0;
+	}
+	if( camera.x > LEVEL_WIDTH - camera.w )
+	{
+		camera.x = LEVEL_WIDTH - camera.w;
+	}
+	if( camera.y > LEVEL_HEIGHT - camera.h )
+	{
+		camera.y = LEVEL_HEIGHT - camera.h;
+	}
 }
 
 double player::getX()

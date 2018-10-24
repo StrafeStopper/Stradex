@@ -65,7 +65,9 @@ public:
 	double getX();
 	double getY();
 
-	void render();
+	void setCamera( SDL_Rect& camera );
+
+	void render(SDL_Rect& camera);
 
 	void clipStop();
 
@@ -102,7 +104,7 @@ extern SDL_Rect text_[1];
 extern SDL_Rect menuBackRect[1];
 extern SDL_Color textColor;
 extern cTexture dungeon_floor;
-extern cTexture beowulf;
+extern cTexture playerMain;
 extern cTexture title;
 extern player player1;
 extern cTexture menuBackground;

@@ -26,9 +26,6 @@ const Uint8* keyState = SDL_GetKeyboardState( NULL );
 
 SDL_Rect* backround = &backRect[0];
 SDL_Rect* buttonClip = &buttonBox[0];
-SDL_Rect* greySquare = &spriteClips[0];
-SDL_Rect* brownSquare = &spriteClips[1];
-SDL_Rect* blueSquare = &spriteClips[2];
 
 bool quit = 0;
 SDL_Event e;
@@ -37,6 +34,53 @@ SDL_Rect startTextBox;
 SDL_Rect screenSpace;
 SDL_Rect wulfBox;
 SDL_Rect zeroClip;
+
+
+
+int LEVEL_WIDTH = 2000;
+int LEVEL_HEIGHT = 2000;
+
+int TILE_WIDTH = 200;
+int TILE_HEIGHT = 200;
+int TOTAL_TILES = 100;
+int TOTAL_TILE_SPRITES = 3;
+
+int TILE_GREY = 0;
+int TILE_BROWN = 1;
+int TILE_BLUE = 2;
+
+
+
+Tile::Tile( int x, int y, int tileType )
+{
+    tileBox.x = x;
+    tileBox.y = y;
+
+    tileBox.w = TILE_WIDTH;
+    tileBox.h = TILE_HEIGHT;
+
+    PtileType = tileType;
+}
+
+void Tile::render( SDL_Rect& camera )
+{
+
+    if( checkCollision( camera, tileBox ) )
+    {
+        basicSprite.render( tileBox.x - camera.x, tileBox.y - camera.y, &spriteClips[ PtileType ] );
+    }
+}
+
+int Tile::getType()
+{
+    return PtileType;
+}
+
+SDL_Rect Tile::getBox()
+{
+    return tileBox;
+}
+
 
 
 
@@ -93,6 +137,7 @@ void level1()
     //menu();
     SDL_ShowWindow(window);
     SDL_RenderClear(renderer);
+    SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     startTextBox.x = 300;
     startTextBox.y = 200;
     startTextBox.w = 700;
@@ -145,7 +190,7 @@ void level1()
 		wulfBox.h = 89;
 
 
-		player1.render();
+		player1.render(camera);
 
 
 

@@ -23,8 +23,6 @@ SDL_Window* window = NULL;
 int SCREEN_WIDTH = 1280;
 int SCREEN_HEIGHT = 720;
 
-int LEVEL_WIDTH = 2000;
-int LEVEL_HEIGHT = 2000;
 
 
 bool init()
@@ -94,7 +92,7 @@ void close()
 	SDL_DestroyTexture(texture);
 	texture = NULL;
 	dungeon_floor.free();
-	beowulf.free();
+	playerMain.free();
 	title.free();
 	menuBackground.free();
 	buttonsSprite.free();
