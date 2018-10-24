@@ -96,6 +96,14 @@ void close()
 	title.free();
 	menuBackground.free();
 	buttonsSprite.free();
+	for( int i = 0; i < TOTAL_TILES; ++i )
+	{
+		 if( tiles[ i ] == NULL )
+		 {
+			delete tiles[ i ];
+			tiles[ i ] = NULL;
+		 }
+	}
 	SDL_DestroyRenderer(renderer);
 	renderer = NULL;
 	printf("SDL surfaces, textures, and renderers freed from memory!\nDestroying SDL window...\n");

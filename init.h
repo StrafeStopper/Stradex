@@ -16,7 +16,7 @@ extern SDL_Window* textWindow;
 
 
 bool init();
-void close();
+void close(Tile* tiles[]);
 
 
 

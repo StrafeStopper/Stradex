@@ -193,7 +193,7 @@ int cTexture::getHeight() { return hHeight; }
 
 
 
-void loadAssets()
+void loadAssets(Tile* tiles[])
 {
 	//printf("Loading image assets in loadSurface(std::string path)...\n");
 	printf("Loading image assets in loadAssets()...\n");
@@ -264,7 +264,10 @@ void loadAssets()
 	spriteClips[2].w = 20;
 	spriteClips[2].h = 20;
 
-
+	if( !setTiles( tiles ) )
+	{
+		printf( "Failed to load tiles\n" );
+	}
 
 
 	sFont = TTF_OpenFont("assets/Ubuntu-L.ttf", 150);
@@ -451,13 +454,13 @@ void player::handleEvent( SDL_Event& e )
     }
 }
 
-bool player::move( SDL_Rect& box )
+bool player::move( Tile *tiles[] )
 {
 
 	posX += velX;
 	collider.x = posX;
 
-	if( ( posX < 0 ) || ( posX + PLAYER_WIDTH > SCREEN_WIDTH ) || checkCollision( collider, box ))
+	if( ( posX < 0 ) || ( posX + PLAYER_WIDTH > SCREEN_WIDTH ) || checkCollision( collider, tiles ))
    {
 	   posX -= velX;
 	   collider.x = posX;
@@ -467,11 +470,10 @@ bool player::move( SDL_Rect& box )
 	posY += velY;
 	collider.y = posY;
 
-	if( ( posY < 0 ) || ( posY + PLAYER_HEIGHT > SCREEN_HEIGHT ) || checkCollision( collider, box ) )
+	if( ( posY < 0 ) || ( posY + PLAYER_HEIGHT > SCREEN_HEIGHT ) || checkCollision( collider, tiles ) )
     {
         posY -= velY;
 		collider.y = posY;
-		//clip = 1;
     }
 	return 1;
 }

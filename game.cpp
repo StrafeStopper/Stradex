@@ -8,6 +8,7 @@
 #include "main.h"
 #include "init.h"
 #include "load.h"
+#include "game.h"
 #include "fileIO.h"
 #include "menu.h"
 #include <string>
