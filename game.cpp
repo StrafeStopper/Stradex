@@ -16,8 +16,8 @@
 
 //comment
 
-double x = 20;
-double y = 20;
+double x = 200;
+double y = 200;
 
 int wulf_w = 50;
 int wulf_h = 89;
@@ -138,11 +138,11 @@ void level1()
       {
         tileSet[ i ]->render( camera );
       }
-    player1.move(tileSet);
-    if(checkCollision(player1.collider, spriteClips[2]))
-    {
-      player1.clipStop();
-    }
+
+    player1.move(zeroClip);
+    player1.setCamera(camera);
+    //player1.clipStop();
+
 
 
 
@@ -162,6 +162,6 @@ void level1()
 
 
 		SDL_RenderPresent(renderer);
-		SDL_Delay(1);
+		//SDL_Delay(1);
     }
 }

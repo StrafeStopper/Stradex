@@ -437,13 +437,13 @@ void player::handleEvent( SDL_Event& e )
     }
 }
 
-bool player::move( Tile *tiles[] )
+bool player::move( SDL_Rect box )
 {
 
 	posX += velX;
 	collider.x = posX;
 
-	if( ( posX < 0 ) || ( posX + PLAYER_WIDTH > SCREEN_WIDTH ) /*|| checkCollision( collider, tiles )*/)
+	if( ( posX < 0 ) || ( posX + PLAYER_WIDTH > LEVEL_WIDTH ) || checkCollision( collider, box ))
    {
 	   posX -= velX;
 	   collider.x = posX;
@@ -453,7 +453,7 @@ bool player::move( Tile *tiles[] )
 	posY += velY;
 	collider.y = posY;
 
-	if( ( posY < 0 ) || ( posY + PLAYER_HEIGHT > SCREEN_HEIGHT ) /*|| checkCollision( collider, tiles ) */)
+	if( ( posY < 0 ) || ( posY + PLAYER_HEIGHT > LEVEL_HEIGHT ) || checkCollision( collider, box ) )
     {
         posY -= velY;
 		collider.y = posY;
@@ -469,7 +469,7 @@ void player::clipStop()
 
 void player::render(SDL_Rect& camera)
 {
-	playerMain.render( collider.x - collider.x, collider.y - camera.y, wulfClip, angle, NULL, flipType);
+	playerMain.render( collider.x - camera.x, collider.y - camera.y, wulfClip, angle, NULL, flipType);
 }
 
 void player::setCamera(SDL_Rect& camera)

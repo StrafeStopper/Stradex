@@ -54,13 +54,13 @@ public:
 	int PLAYER_WIDTH = 50;
 	int PLAYER_HEIGHT = 89;
 
-	double PLAYER_VEL = 0.25;
+	double PLAYER_VEL = 0.3;
 
 	player();
 
 	void handleEvent( SDL_Event& e );
 
-	bool move( Tile* tiles[] );
+	bool move( SDL_Rect box );
 
 	double getX();
 	double getY();

@@ -186,12 +186,12 @@ void setTiles( Tile* tiles[] )
 			spriteClips[ TILE_GREY ].w = TILE_WIDTH;
 			spriteClips[ TILE_GREY ].h = TILE_HEIGHT;
 
-			spriteClips[ TILE_BROWN ].x = 20;
+			spriteClips[ TILE_BROWN ].x = 200;
 			spriteClips[ TILE_BROWN ].y = 0;
 			spriteClips[ TILE_BROWN ].w = TILE_WIDTH;
 			spriteClips[ TILE_BROWN ].h = TILE_HEIGHT;
 
-			spriteClips[ TILE_BLUE ].x = 40;
+			spriteClips[ TILE_BLUE ].x = 400;
 			spriteClips[ TILE_BLUE ].y = 0;
 			spriteClips[ TILE_BLUE ].w = TILE_WIDTH;
 			spriteClips[ TILE_BLUE ].h = TILE_HEIGHT;
