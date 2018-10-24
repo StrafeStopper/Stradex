@@ -44,48 +44,6 @@ int main(int argc, char* args[])
 	menu();
 
 
-
-	///printf("Light:~# ");
-	//std::cin >> command;
-
-
-/*while(cmdLoop)
-{
-	if(command == "level1")
-	{
-		cmdLoop = 0;
-		level1();
-		command = " ";
-	}
-	else
-	if( command == "init")
-	{
-		cmdLoop = 0;
-	 	init();
-		loadAssets();
-		command = " ";
-	}
-	else
-	if(command == "close")
-	{
-		cmdLoop = 0;
-		close();
-		command = " ";
-	}
-	else
-	{
-		cmdLoop = 1;
-		printf("Command: \"");
-		std::cout << command;
-		printf("\" not recognized\n");
-		command = " ";
-		printf("Light:~# ");
-		std::cin >> command;
-	}
-		menu();
-}*/
-
-
 	close();
 	printf("SDL successfully shutdown!\n\nPress [enter] to exit...\n");
 	std::cin.get();

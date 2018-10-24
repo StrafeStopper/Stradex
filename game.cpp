@@ -116,10 +116,7 @@ void level1()
     {
         SDL_RenderClear(renderer);
         dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
-        basicSprite.render(200, 20, blueSquare, NULL, NULL, SDL_FLIP_NONE);
-        basicSprite.render(220, 40, blueSquare, NULL, NULL, SDL_FLIP_NONE);
-        basicSprite.render(240, 60, blueSquare, NULL, NULL, SDL_FLIP_NONE);
-        basicSprite.render(260, 80, blueSquare, NULL, NULL, SDL_FLIP_NONE);
+
 
 
         while( SDL_PollEvent( &e ) != 0 )
