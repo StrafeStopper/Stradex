@@ -17,7 +17,7 @@
 
 using namespace std;
 
-int loadText(std::string path)
+/*int loadText(std::string path)
 {
   fstream map;
 
@@ -30,4 +30,4 @@ int loadText(std::string path)
   SCREEN_HEIGHT = t2;
   //cout << t1 << endl << t2 << endl;
   map.close();
-}
+}*/

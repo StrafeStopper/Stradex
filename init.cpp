@@ -11,7 +11,9 @@
 #include "main.h"
 #include "init.h"
 #include "load.h"
+#include "game.h"
 #include "fileIO.h"
+#include <fstream>
 #include "menu.h"
 #include <string>
 #include <cmath>
@@ -86,7 +88,140 @@ bool init()
 	return boot;
 }
 
-void close()
+
+
+int LEVEL_WIDTH = 2000;
+int LEVEL_HEIGHT = 2000;
+
+int TILE_WIDTH = 200;
+int TILE_HEIGHT = 200;
+
+int TOTAL_TILE_SPRITES = 3;
+
+int TILE_GREY = 0;
+int TILE_BROWN = 1;
+int TILE_BLUE = 2;
+
+
+Tile::Tile( int x, int y, int tileType )
+{
+    tileBox.x = x;
+    tileBox.y = y;
+
+    tileBox.w = TILE_WIDTH;
+    tileBox.h = TILE_HEIGHT;
+
+    PtileType = tileType;
+}
+
+void Tile::render( SDL_Rect& camera )
+{
+
+    if( checkCollision( camera, tileBox ) )
+    {
+        basicSprite.render( tileBox.x - camera.x, tileBox.y - camera.y, &spriteClips[ PtileType ] );
+    }
+}
+
+int Tile::getType()
+{
+    return PtileType;
+}
+
+SDL_Rect Tile::getBox()
+{
+    return tileBox;
+}
+
+
+
+void setTiles( Tile* tiles[] )
+{
+    int x = 0, y = 0;
+
+    std::ifstream map( "maps/level1.map" );
+
+    if( map == NULL )
+    {
+		printf( "Unable to load map file!\n" );
+    }
+	else
+	{
+
+		for( int i = 0; i < TOTAL_TILES; ++i )
+		{
+
+			int tileType = -1;
+
+			map >> tileType;
+
+			if( map.fail() )
+			{
+				printf( "Error loading map: Unexpected end of file\n" );
+				break;
+			}
+
+			if( ( tileType >= 0 ) && ( tileType < TOTAL_TILE_SPRITES ) )
+			{
+				tiles[ i ] = new Tile( x, y, tileType );
+			}
+			else
+			{
+				printf( "Error loading map: Invalid tile type at %d\n", i );
+				break;
+			}
+
+			x += TILE_WIDTH;
+
+			if( x >= LEVEL_WIDTH )
+			{
+				x = 0;
+
+				y += TILE_HEIGHT;
+			}
+		}
+
+			spriteClips[ TILE_GREY ].x = 0;
+			spriteClips[ TILE_GREY ].y = 0;
+			spriteClips[ TILE_GREY ].w = TILE_WIDTH;
+			spriteClips[ TILE_GREY ].h = TILE_HEIGHT;
+
+			spriteClips[ TILE_BROWN ].x = 20;
+			spriteClips[ TILE_BROWN ].y = 0;
+			spriteClips[ TILE_BROWN ].w = TILE_WIDTH;
+			spriteClips[ TILE_BROWN ].h = TILE_HEIGHT;
+
+			spriteClips[ TILE_BLUE ].x = 40;
+			spriteClips[ TILE_BLUE ].y = 0;
+			spriteClips[ TILE_BLUE ].w = TILE_WIDTH;
+			spriteClips[ TILE_BLUE ].h = TILE_HEIGHT;
+
+	}
+
+    map.close();
+
+}
+
+/*bool touchesWall( SDL_Rect box, Tile* tiles[] )
+{
+    for( int i = 0; i < TOTAL_TILES; ++i )
+    {
+        if( ( tiles[ i ]->getType() >= TILE_CENTER ) && ( tiles[ i ]->getType() <= TILE_TOPLEFT ) )
+        {
+            if( checkCollision( box, tiles[ i ]->getBox() ) )
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}*/
+
+    Tile* tileSet[ TOTAL_TILES ];
+
+
+int close(Tile* tiles[])
 {
 	printf("\nShutting down...\nDetroying textures and renderers...\n");
 	SDL_DestroyTexture(texture);

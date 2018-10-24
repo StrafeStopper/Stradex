@@ -5,6 +5,9 @@
 
 extern SDL_Texture* texture;
 
+
+
+
 extern Uint8 r;
 extern Uint8 g;
 extern Uint8 b;

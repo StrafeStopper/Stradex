@@ -35,16 +35,17 @@ bool cmdLoop = 1;
 
 
 
+
 int main(int argc, char* args[])
 {
 	printf("Welcome to the <Light> development project!\nCreated and developed by Strafe_Stopper\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
 	//loadText();
 	init();
-	loadAssets();
+	loadAssets(tileSet);
 	menu();
 
 
-	close();
+	close(tileSet);
 	printf("SDL successfully shutdown!\n\nPress [enter] to exit...\n");
 	std::cin.get();
 	printf("Exiting <Light>...\n");

@@ -60,7 +60,7 @@ public:
 
 	void handleEvent( SDL_Event& e );
 
-	bool move( SDL_Rect& box );
+	bool move( Tile* tiles[] );
 
 	double getX();
 	double getY();
@@ -95,6 +95,13 @@ private:
 	int mButtonCurrent;
 };
 
+
+
+
+
+
+
+
 extern SDL_Texture* loadTexture(std::string path);
 extern TTF_Font *sFont;
 extern SDL_Rect spriteClips[3];
@@ -118,6 +125,6 @@ extern cTexture basicSprite;
 
 
 
-void loadAssets();
+void loadAssets(Tile* tiles[]);
 
 #endif //LOAD_H

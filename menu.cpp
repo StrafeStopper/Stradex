@@ -96,7 +96,7 @@ bool menu()
               if(quitButton.handleMouseEvent( &e, 2 ))
               {
                 SDL_HideWindow(window);
-                close();
+                close(tileSet);
                 printf("SDL successfully shutdown!\n\nPress [enter] to exit...\n");
                 std::cin.get();
                 printf("Exiting <Light>...\n");

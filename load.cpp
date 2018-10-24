@@ -249,25 +249,8 @@ void loadAssets(Tile* tiles[])
 	menuBackRect[0].h = 720;
 
 
-	spriteClips[0].x = 0;
-	spriteClips[0].y = 0;
-	spriteClips[0].w = 20;
-	spriteClips[0].h = 20;
+	setTiles( tiles );
 
-	spriteClips[1].x = 20;
-	spriteClips[1].y = 0;
-	spriteClips[1].w = 20;
-	spriteClips[1].h = 20;
-
-	spriteClips[2].x = 40;
-	spriteClips[2].y = 0;
-	spriteClips[2].w = 20;
-	spriteClips[2].h = 20;
-
-	if( !setTiles( tiles ) )
-	{
-		printf( "Failed to load tiles\n" );
-	}
 
 
 	sFont = TTF_OpenFont("assets/Ubuntu-L.ttf", 150);
@@ -460,7 +443,7 @@ bool player::move( Tile *tiles[] )
 	posX += velX;
 	collider.x = posX;
 
-	if( ( posX < 0 ) || ( posX + PLAYER_WIDTH > SCREEN_WIDTH ) || checkCollision( collider, tiles ))
+	if( ( posX < 0 ) || ( posX + PLAYER_WIDTH > SCREEN_WIDTH ) /*|| checkCollision( collider, tiles )*/)
    {
 	   posX -= velX;
 	   collider.x = posX;
@@ -470,7 +453,7 @@ bool player::move( Tile *tiles[] )
 	posY += velY;
 	collider.y = posY;
 
-	if( ( posY < 0 ) || ( posY + PLAYER_HEIGHT > SCREEN_HEIGHT ) || checkCollision( collider, tiles ) )
+	if( ( posY < 0 ) || ( posY + PLAYER_HEIGHT > SCREEN_HEIGHT ) /*|| checkCollision( collider, tiles ) */)
     {
         posY -= velY;
 		collider.y = posY;

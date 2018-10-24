@@ -38,49 +38,6 @@ SDL_Rect zeroClip;
 
 
 
-int LEVEL_WIDTH = 2000;
-int LEVEL_HEIGHT = 2000;
-
-int TILE_WIDTH = 200;
-int TILE_HEIGHT = 200;
-int TOTAL_TILES = 100;
-int TOTAL_TILE_SPRITES = 3;
-
-int TILE_GREY = 0;
-int TILE_BROWN = 1;
-int TILE_BLUE = 2;
-
-
-
-Tile::Tile( int x, int y, int tileType )
-{
-    tileBox.x = x;
-    tileBox.y = y;
-
-    tileBox.w = TILE_WIDTH;
-    tileBox.h = TILE_HEIGHT;
-
-    PtileType = tileType;
-}
-
-void Tile::render( SDL_Rect& camera )
-{
-
-    if( checkCollision( camera, tileBox ) )
-    {
-        basicSprite.render( tileBox.x - camera.x, tileBox.y - camera.y, &spriteClips[ PtileType ] );
-    }
-}
-
-int Tile::getType()
-{
-    return PtileType;
-}
-
-SDL_Rect Tile::getBox()
-{
-    return tileBox;
-}
 
 
 
@@ -132,12 +89,14 @@ clip = 1;
 
 
 
+
 void level1()
 {
     //loadAssets();
     //menu();
     SDL_ShowWindow(window);
     SDL_RenderClear(renderer);
+
     SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     startTextBox.x = 300;
     startTextBox.y = 200;
@@ -175,12 +134,19 @@ void level1()
           }
 
 
-
-    player1.move(zeroClip);
+    for( int i = 0; i < TOTAL_TILES; ++i )
+      {
+        tileSet[ i ]->render( camera );
+      }
+    player1.move(tileSet);
     if(checkCollision(player1.collider, spriteClips[2]))
     {
       player1.clipStop();
     }
+
+
+
+
 
 		x = player1.getX();
 		y = player1.getY();
