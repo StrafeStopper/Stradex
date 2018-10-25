@@ -139,7 +139,7 @@ void level1()
         tileSet[ i ]->render( camera );
       }
 
-    player1.move(zeroClip);
+    player1.move(tileSet);
     player1.setCamera(camera);
     //player1.clipStop();
 
@@ -162,6 +162,6 @@ void level1()
 
 
 		SDL_RenderPresent(renderer);
-		
+
     }
 }

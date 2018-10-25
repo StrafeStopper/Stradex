@@ -437,23 +437,22 @@ void player::handleEvent( SDL_Event& e )
     }
 }
 
-bool player::move( SDL_Rect box )
+bool player::move( Tile *tiles[] )
 {
 
 	posX += velX;
 	collider.x = posX;
 
-	if( ( posX < 0 ) || ( posX + PLAYER_WIDTH > LEVEL_WIDTH ) || checkCollision( collider, box ))
+	if( ( posX < 0 ) || ( posX + PLAYER_WIDTH > LEVEL_WIDTH ) || touchesWall( collider, tiles ))
    {
 	   posX -= velX;
 	   collider.x = posX;
-	   //clip = 1;
    }
 
 	posY += velY;
 	collider.y = posY;
 
-	if( ( posY < 0 ) || ( posY + PLAYER_HEIGHT > LEVEL_HEIGHT ) || checkCollision( collider, box ) )
+	if( ( posY < 0 ) || ( posY + PLAYER_HEIGHT > LEVEL_HEIGHT ) || touchesWall( collider, tiles ) )
     {
         posY -= velY;
 		collider.y = posY;

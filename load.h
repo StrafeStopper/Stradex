@@ -60,7 +60,7 @@ public:
 
 	void handleEvent( SDL_Event& e );
 
-	bool move( SDL_Rect box );
+	bool move( Tile *tiles[] );
 
 	double getX();
 	double getY();

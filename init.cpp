@@ -202,11 +202,11 @@ void setTiles( Tile* tiles[] )
 
 }
 
-/*bool touchesWall( SDL_Rect box, Tile* tiles[] )
+bool touchesWall( SDL_Rect box, Tile* tiles[] )
 {
     for( int i = 0; i < TOTAL_TILES; ++i )
     {
-        if( ( tiles[ i ]->getType() >= TILE_CENTER ) && ( tiles[ i ]->getType() <= TILE_TOPLEFT ) )
+        if( ( tiles[ i ]->getType() >= 03 ) && ( tiles[ i ]->getType() <= 99 ) )
         {
             if( checkCollision( box, tiles[ i ]->getBox() ) )
             {
@@ -216,7 +216,7 @@ void setTiles( Tile* tiles[] )
     }
 
     return false;
-}*/
+}
 
     Tile* tileSet[ TOTAL_TILES ];
 
