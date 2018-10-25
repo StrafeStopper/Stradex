@@ -206,7 +206,7 @@ bool touchesWall( SDL_Rect box, Tile* tiles[] )
 {
     for( int i = 0; i < TOTAL_TILES; ++i )
     {
-        if( ( tiles[ i ]->getType() >= 03 ) && ( tiles[ i ]->getType() <= 99 ) )
+        if( ( tiles[ i ]->getType() >= 02 ) && ( tiles[ i ]->getType() <= 02 ) )
         {
             if( checkCollision( box, tiles[ i ]->getBox() ) )
             {
