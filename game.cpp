@@ -162,6 +162,6 @@ void level1()
 
 
 		SDL_RenderPresent(renderer);
-		//SDL_Delay(1);
+		
     }
 }
