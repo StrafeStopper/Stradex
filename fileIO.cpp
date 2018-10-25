@@ -17,11 +17,11 @@
 
 using namespace std;
 
-/*int loadText(std::string path)
+int loadText(std::string path)
 {
   fstream map;
 
-  //map.open(path);
+  map.open("settings/window_size.txt");
   int t1, t2;
   map >> t1;
   map >> t2;
@@ -30,4 +30,4 @@ using namespace std;
   SCREEN_HEIGHT = t2;
   //cout << t1 << endl << t2 << endl;
   map.close();
-}*/
+}
