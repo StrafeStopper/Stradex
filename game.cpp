@@ -92,8 +92,6 @@ clip = 1;
 
 void level1()
 {
-    //loadAssets();
-    //menu();
     SDL_ShowWindow(window);
     SDL_RenderClear(renderer);
 
