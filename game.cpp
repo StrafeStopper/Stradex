@@ -16,8 +16,8 @@
 
 //comment
 
-double x = 200;
-double y = 200;
+double x = 300;
+double y = 300;
 
 int wulf_w = 50;
 int wulf_h = 89;
@@ -118,7 +118,7 @@ void level1()
     while (!quit)
     {
         SDL_RenderClear(renderer);
-        //dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
+        dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
 
 
 
