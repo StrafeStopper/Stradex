@@ -118,7 +118,7 @@ void level1()
     while (!quit)
     {
         SDL_RenderClear(renderer);
-        dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
+        //dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
 
 
 

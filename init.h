@@ -22,12 +22,14 @@ extern int LEVEL_HEIGHT;
 
 extern int TILE_WIDTH;
 extern int TILE_HEIGHT;
-const int TOTAL_TILES = 100;
+const int TOTAL_TILES = 40000;
 extern int TOTAL_TILE_SPRITES;
 
+extern int TILE_BLACK;
 extern int TILE_GREY;
-extern int TILE_BROWN;
 extern int TILE_BLUE;
+extern int TILE_RED;
+extern int TILE_GREEN;
 
 
 class Tile
