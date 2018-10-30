@@ -51,8 +51,8 @@ private:
 class player
 {
 public:
-	int PLAYER_WIDTH = 50;
-	int PLAYER_HEIGHT = 89;
+	static const int PLAYER_WIDTH = 50;
+	static const int PLAYER_HEIGHT = 89;
 
 	double PLAYER_VEL = 1;
 
