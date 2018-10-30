@@ -102,8 +102,6 @@ bool menu()
                 printf("Exiting <Light>...\n");
                 exit(0);
                 menuLoop = 1;
-                //quit = 1;
-                //return 0;
 
               }
           }
