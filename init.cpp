@@ -93,8 +93,8 @@ bool init()
 int LEVEL_WIDTH = 2000;
 int LEVEL_HEIGHT = 2000;
 
-int TILE_WIDTH = 25;
-int TILE_HEIGHT = 25;
+int TILE_WIDTH = 30;
+int TILE_HEIGHT = 30;
 
 int TOTAL_TILE_SPRITES = 5;
 
@@ -189,22 +189,22 @@ void setTiles( Tile* tiles[] )
 			spriteClips[ TILE_BLACK ].w = TILE_WIDTH;
 			spriteClips[ TILE_BLACK ].h = TILE_HEIGHT;
 
-			spriteClips[ TILE_GREY ].x = 25;
+			spriteClips[ TILE_GREY ].x = 30;
 			spriteClips[ TILE_GREY ].y = 0;
 			spriteClips[ TILE_GREY ].w = TILE_WIDTH;
 			spriteClips[ TILE_GREY ].h = TILE_HEIGHT;
 
-			spriteClips[ TILE_BLUE ].x = 50;
+			spriteClips[ TILE_BLUE ].x = 60;
 			spriteClips[ TILE_BLUE ].y = 0;
 			spriteClips[ TILE_BLUE ].w = TILE_WIDTH;
 			spriteClips[ TILE_BLUE ].h = TILE_HEIGHT;
 
-			spriteClips[ TILE_RED ].x = 75;
+			spriteClips[ TILE_RED ].x = 90;
 			spriteClips[ TILE_RED ].y = 0;
 			spriteClips[ TILE_RED ].w = TILE_WIDTH;
 			spriteClips[ TILE_RED ].h = TILE_HEIGHT;
 
-			spriteClips[ TILE_GREEN ].x = 100;
+			spriteClips[ TILE_GREEN ].x = 120;
 			spriteClips[ TILE_GREEN ].y = 0;
 			spriteClips[ TILE_GREEN ].w = TILE_WIDTH;
 			spriteClips[ TILE_GREEN ].h = TILE_HEIGHT;

@@ -134,12 +134,12 @@ void level1()
 
     for( int i = 0; i < TOTAL_TILES; ++i )
       {
-        //tileSet[ i ]->render( camera );
+        tileSet[ i ]->render( camera );
       }
 
     player1.move(tileSet);
     player1.setCamera(camera);
-    //player1.clipStop();
+    player1.clipStop();
 
 
 
