@@ -139,6 +139,7 @@ SDL_Rect Tile::getBox()
 
 void setTiles( Tile* tiles[] )
 {
+		printf("Setting map tiles...\n");
     int x = 0, y = 0;
 
     std::ifstream map( "maps/level1.map" );
@@ -211,6 +212,7 @@ void setTiles( Tile* tiles[] )
 	}
 
     map.close();
+		printf("Done!\n");
 
 }
 

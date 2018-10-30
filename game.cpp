@@ -134,7 +134,7 @@ void level1()
 
     for( int i = 0; i < TOTAL_TILES; ++i )
       {
-        tileSet[ i ]->render( camera );
+        //tileSet[ i ]->render( camera );
       }
 
     player1.move(tileSet);
@@ -156,7 +156,6 @@ void level1()
 
 
 		player1.render(camera);
-
 
 
 		SDL_RenderPresent(renderer);

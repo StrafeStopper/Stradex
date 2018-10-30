@@ -54,7 +54,7 @@ public:
 	int PLAYER_WIDTH = 50;
 	int PLAYER_HEIGHT = 89;
 
-	double PLAYER_VEL = 0.3;
+	double PLAYER_VEL = 1;
 
 	player();
 
