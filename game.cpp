@@ -117,8 +117,9 @@ void level1()
 
     while (!quit)
     {
-        SDL_RenderClear(renderer);
-        dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
+
+
+        //dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
 
 
 
@@ -132,14 +133,18 @@ void level1()
           }
 
 
+
+          player1.move(tileSet);
+          player1.setCamera(camera);
+          SDL_RenderClear(renderer);
+
     for( int i = 0; i < TOTAL_TILES; ++i )
       {
         tileSet[ i ]->render( camera );
       }
 
-    player1.move(tileSet);
-    player1.setCamera(camera);
-    player1.clipStop();
+
+    //player1.clipStop();
 
 
 

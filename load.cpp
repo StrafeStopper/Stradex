@@ -468,7 +468,7 @@ void player::clipStop()
 
 void player::render(SDL_Rect& camera)
 {
-	playerMain.render( collider.x - camera.x, collider.y - camera.y, wulfClip, angle, NULL, flipType);
+	playerMain.render( collider.x - camera.x, collider.y - camera.y, wulfClip, NULL, NULL, flipType);
 	//playerMain.render( 100, 100, wulfClip, angle, NULL, flipType);
 }
 

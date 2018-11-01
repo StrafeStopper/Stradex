@@ -47,7 +47,7 @@ bool init()
 			printf("Window created!\n");
 
 
-		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
 		if(renderer == NULL)
 		{
@@ -220,7 +220,7 @@ bool touchesWall( SDL_Rect box, Tile* tiles[] )
 {
     for( int i = 0; i < TOTAL_TILES; ++i )
     {
-        if( ( tiles[ i ]->getType() >= 0 ) && ( tiles[ i ]->getType() <= 0 ) )
+        if( ( tiles[ i ]->getType() >= TILE_BLACK ) && ( tiles[ i ]->getType() <= TILE_BLACK ) )
         {
             if( checkCollision( box, tiles[ i ]->getBox() ) )
             {
