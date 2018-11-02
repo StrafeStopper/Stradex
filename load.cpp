@@ -56,6 +56,7 @@ int playerH;
 
 bool clip = 0;
 
+
 SDL_Rect* wulfClip = &wulf[0];
 
 SDL_RendererFlip flipType = SDL_FLIP_NONE;
@@ -469,7 +470,6 @@ void player::clipStop()
 void player::render(SDL_Rect& camera)
 {
 	playerMain.render( collider.x - camera.x, collider.y - camera.y, wulfClip, NULL, NULL, flipType);
-	//playerMain.render( 100, 100, wulfClip, angle, NULL, flipType);
 }
 
 void player::setCamera(SDL_Rect& camera)
