@@ -90,8 +90,8 @@ bool init()
 
 
 
-int LEVEL_WIDTH = 2000;
-int LEVEL_HEIGHT = 2000;
+int LEVEL_WIDTH = 2010;
+int LEVEL_HEIGHT = 720;
 
 int TILE_WIDTH = 30;
 int TILE_HEIGHT = 30;
@@ -220,7 +220,7 @@ bool touchesWall( SDL_Rect box, Tile* tiles[] )
 {
     for( int i = 0; i < TOTAL_TILES; ++i )
     {
-        if( ( tiles[ i ]->getType() >= TILE_BLACK ) && ( tiles[ i ]->getType() <= TILE_BLACK ) )
+        if( ( tiles[ i ]->getType() == TILE_BLACK )/* && ( tiles[ i ]->getType() <= TILE_BLACK ) */)
         {
             if( checkCollision( box, tiles[ i ]->getBox() ) )
             {
