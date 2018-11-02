@@ -22,7 +22,7 @@ extern int LEVEL_HEIGHT;
 
 extern int TILE_WIDTH;
 extern int TILE_HEIGHT;
-const int TOTAL_TILES = 1080;
+const int TOTAL_TILES = 1608;
 extern int TOTAL_TILE_SPRITES;
 
 extern int TILE_BLACK;

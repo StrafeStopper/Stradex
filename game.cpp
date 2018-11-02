@@ -113,13 +113,12 @@ void level1()
     zeroClip.h = 0;
 
     SDL_RenderClear(renderer);
-    int swordLoop = 0;
 
     while (!quit)
     {
       //SDL_RenderClear(renderer);
 
-        //dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
+        dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
 
 
 
@@ -151,13 +150,10 @@ void level1()
 
 
 
-		x = player1.getX();
-		y = player1.getY();
+		//x = player1.getX();
+		//y = player1.getY();
 
-		wulfBox.x = x;
-		wulfBox.y = y;
-		wulfBox.w = 50;
-		wulfBox.h = 89;
+
 
 		player1.render(camera);
 

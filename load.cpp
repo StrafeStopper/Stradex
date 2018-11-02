@@ -110,8 +110,8 @@ bool cTexture::loadFromFile(std::string path)
 
 void cTexture::render(int x, int y, SDL_Rect * clip, double angle, SDL_Point * center, SDL_RendererFlip flip)
 {
-	//SDL_Rect renderQuad = { x, y, hWidth, hHeight };
-	SDL_Rect renderQuad = { x, y, 480, 480 };
+	SDL_Rect renderQuad = { x, y, hWidth, hHeight };
+	//SDL_Rect renderQuad = { x, y, clip->w, clip->h };
 
 	if (clip != NULL)
 	{
@@ -392,9 +392,11 @@ return 0;
 
 player::player()
 {
-	posX = 10;
-	posY = 10;
+	posX = 100;
+	posY = 100;
 
+	collider.x = 0;
+	collider.y = 0;
 	collider.w = PLAYER_WIDTH;
 	collider.h = PLAYER_HEIGHT;
 
@@ -441,22 +443,18 @@ void player::handleEvent( SDL_Event& e )
 bool player::move( Tile *tiles[] )
 {
 
-	posX += velX;
-	collider.x = posX;
+	collider.x += velX;
 
-	if( ( posX < 0 ) || ( posX + PLAYER_WIDTH > LEVEL_WIDTH ) || touchesWall( collider, tiles ))
+	if( ( collider.x < 0 ) || ( collider.x + PLAYER_WIDTH > LEVEL_WIDTH ) || touchesWall( collider, tiles ))
    {
-	   posX -= velX;
-	   collider.x = posX;
+	   collider.x -= velX;
    }
 
-	posY += velY;
-	collider.y = posY;
+	collider.y += velY;
 
-	if( ( posY < 0 ) || ( posY + PLAYER_HEIGHT > LEVEL_HEIGHT ) || touchesWall( collider, tiles ) )
+	if( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) || touchesWall( collider, tiles ) )
     {
-        posY -= velY;
-		collider.y = posY;
+		collider.y -= velY;
     }
 	return 1;
 }
@@ -469,7 +467,8 @@ void player::clipStop()
 
 void player::render(SDL_Rect& camera)
 {
-	playerMain.render( collider.x - camera.x, collider.y - camera.y, wulfClip, NULL, NULL, flipType);
+	playerMain.render( collider.x - camera.x, collider.y - camera.y, &wulf[0], NULL, NULL, flipType);
+
 }
 
 void player::setCamera(SDL_Rect& camera)
