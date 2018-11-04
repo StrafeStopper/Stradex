@@ -15,4 +15,4 @@ linux : $(OBJS)
 	g++ $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o light
 
 windows : $(OBJS)
-	x86_64-w64-mingw32-g++ $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o light.exe
+	x86_64-w64-mingw32-g++ $(OBJS) $(COMPILER_FLAGS) -o light.exe
