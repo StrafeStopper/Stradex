@@ -8,11 +8,12 @@ OBJ_NAME = light.exe
 COMPILER_FLAGS = -w
 
 #LINKER_FLAGS: Flags to link extra libraries to the executable
-LINKER_FLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf
+LINUX_FLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf
+WINDOWS_FLAGS = -lmingw32 -LSDL2/x86_64-w64-mingw32/lib -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
 
 #Compile for linux
 linux : $(OBJS)
-	g++ $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o light
+	g++ $(OBJS) $(COMPILER_FLAGS) $(LINUX_FLAGS) -o light
 
 windows : $(OBJS)
-	x86_64-w64-mingw32-g++ $(OBJS) $(COMPILER_FLAGS) -o light.exe
+	x86_64-w64-mingw32-g++ $(OBJS) $(COMPILER_FLAGS) $(WINDOWS_FLAGS) -o light.exe
