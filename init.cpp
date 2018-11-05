@@ -210,7 +210,7 @@ void setTiles( Tile* tiles[] )
 	}
 
     map.close();
-		printf("Done!\n");
+		
 
 }
 

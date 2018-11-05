@@ -74,15 +74,15 @@ public:
 	void clipStop();
 
 	SDL_Rect collider;
+	double posX, posY;
+	double velX, velY;
 
 private:
 
 
 	SDL_Rect clip;
 
-	double posX, posY;
 
-	double velX, velY;
 
 
 };
@@ -104,7 +104,11 @@ private:
 
 
 
-
+extern float gravity;
+extern float fallSpeed;
+extern float jumpForce;
+extern float currentJumpForce;
+extern bool jumping;
 
 
 

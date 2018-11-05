@@ -118,8 +118,12 @@ void level1()
 
 
     player1.collider.x = 51;
-    player1.collider.y = 01;
+    player1.collider.y = 599;
     flipType = SDL_FLIP_NONE;
+    jumping = 0;
+    currentJumpForce = 0.0f;
+    player1.velY = 0;
+    player1.velX = 0;
 
     while (!quit)
     {
@@ -134,11 +138,41 @@ void level1()
             if( e.type == SDL_QUIT )
     	    {
     		          quit = 1;
-    		  }
+    		  } else
+          if(e.type == SDL_KEYDOWN )
+          {
+            if (e.key.keysym.sym == SDLK_SPACE )
+            {
+              jumping = 1;
+              currentJumpForce = jumpForce;
+            }
+          }
               player1.handleEvent(e);
           }
 
           float timeStep = stepTimer.getTicks() / 1000.f;
+
+          if (jumping)
+          {
+              //printf("jump\n" );
+
+              player1.velY -= currentJumpForce * timeStep;
+
+              if (player1.velY < fallSpeed)
+              {
+                currentJumpForce = fallSpeed;
+                player1.velY += gravity * timeStep;
+              } else {
+                //currentJumpForce = fallSpeed;
+              }
+
+              if(touchesWall(player1.collider, tileSet))
+              {
+                player1.velY = 0;
+                jumping = 0;
+                currentJumpForce = 0.0;
+              }
+          }
 
           player1.move(tileSet, timeStep);
 
@@ -160,8 +194,8 @@ void level1()
 
 
 
-		x = player1.getX();
-		y = player1.getY();
+		//x = player1.getX();
+		//y = player1.getY();
 
 
 

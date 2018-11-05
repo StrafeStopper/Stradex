@@ -42,6 +42,7 @@ int main(int argc, char* args[])
 	//loadText("settings/window_size.txt");
 	init();
 	loadAssets(tileSet);
+	printf("Running...\n");
 	menu();
 
 

@@ -413,6 +413,8 @@ SDL_Rect player::getCollider()
 	return collider;
 }
 
+
+
 void player::handleEvent( SDL_Event& e )
 {
 
@@ -426,15 +428,24 @@ void player::handleEvent( SDL_Event& e )
 		//	break;
 		//case SDLK_s: velY += PLAYER_VEL;
 		//	break;
-		case SDLK_a: velX -= PLAYER_VEL;
+		case SDLK_a:
+			velX -= PLAYER_VEL;
 			flipType = SDL_FLIP_HORIZONTAL;
 			break;
-		case SDLK_d: velX += PLAYER_VEL;
+
+		case SDLK_d:
+			velX += PLAYER_VEL;
 			flipType = SDL_FLIP_NONE;
 			break;
-		case SDLK_SPACE:
-		case SDLK_q: menu();
-		break;
+
+		/*case SDLK_SPACE:
+			jumping = 1;
+			currentJumpForce = jumpForce;
+			break;*/
+
+		case SDLK_q:
+			menu();
+			break;
 
 		    }
     }
@@ -450,8 +461,18 @@ void player::handleEvent( SDL_Event& e )
     }
 }
 
+float gravity = 500.0f;
+float fallSpeed = -200.0f;
+float jumpForce = 200.0f;
+float currentJumpForce = 0.0f;
+bool jumping = 0;
+
 bool player::move( Tile *tiles[], float timeStep )
 {
+
+
+
+
 
 	collider.x += velX * timeStep;
 
