@@ -461,9 +461,9 @@ void player::handleEvent( SDL_Event& e )
     }
 }
 
-float gravity = 500.0f;
-float fallSpeed = -200.0f;
-float jumpForce = 200.0f;
+float gravity = 100.0f;
+float fallSpeed = -300.0f;
+float jumpForce = 1000.0f;
 float currentJumpForce = 0.0f;
 bool jumping = 0;
 
@@ -483,7 +483,7 @@ bool player::move( Tile *tiles[], float timeStep )
 
 	collider.y += velY * timeStep;
 
-	if( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) || touchesWall( collider, tiles ) )
+	if( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) /*|| touchesWall( collider, tiles )*/ )
     {
 		collider.y -= velY * timeStep;
     }

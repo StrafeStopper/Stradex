@@ -141,6 +141,10 @@ void level1()
     		  } else
           if(e.type == SDL_KEYDOWN )
           {
+            if (jumping == 1)
+            {
+              break;
+            } else
             if (e.key.keysym.sym == SDLK_SPACE )
             {
               jumping = 1;
@@ -156,12 +160,12 @@ void level1()
           {
               //printf("jump\n" );
 
-              player1.velY -= currentJumpForce * timeStep;
+              player1.velY -= currentJumpForce * timeStep * 4;
 
               if (player1.velY < fallSpeed)
               {
                 currentJumpForce = fallSpeed;
-                player1.velY += gravity * timeStep;
+                player1.velY += gravity * timeStep * 4;
               } else {
                 //currentJumpForce = fallSpeed;
               }
@@ -169,6 +173,7 @@ void level1()
               if(touchesWall(player1.collider, tileSet))
               {
                 player1.velY = 0;
+                player1.collider.y -= 4;
                 jumping = 0;
                 currentJumpForce = 0.0;
               }
