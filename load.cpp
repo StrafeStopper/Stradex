@@ -408,6 +408,11 @@ player::player()
 	velY = 0;
 }
 
+SDL_Rect player::getCollider()
+{
+	return collider;
+}
+
 void player::handleEvent( SDL_Event& e )
 {
 
@@ -417,16 +422,17 @@ void player::handleEvent( SDL_Event& e )
 
         switch( e.key.keysym.sym )
         {
-		case SDLK_w: velY -= PLAYER_VEL;
-			break;
-		case SDLK_s: velY += PLAYER_VEL;
-			break;
+		//case SDLK_w: velY -= PLAYER_VEL;
+		//	break;
+		//case SDLK_s: velY += PLAYER_VEL;
+		//	break;
 		case SDLK_a: velX -= PLAYER_VEL;
 			flipType = SDL_FLIP_HORIZONTAL;
 			break;
 		case SDLK_d: velX += PLAYER_VEL;
 			flipType = SDL_FLIP_NONE;
 			break;
+		case SDLK_SPACE:
 		case SDLK_q: menu();
 		break;
 
@@ -436,29 +442,29 @@ void player::handleEvent( SDL_Event& e )
     {
         switch( e.key.keysym.sym )
         {
-		case SDLK_w: velY += PLAYER_VEL; break;
-		case SDLK_s: velY -= PLAYER_VEL; break;
+		//case SDLK_w: velY += PLAYER_VEL; break;
+		//case SDLK_s: velY -= PLAYER_VEL; break;
 		case SDLK_a: velX += PLAYER_VEL; break;
 		case SDLK_d: velX -= PLAYER_VEL; break;
         }
     }
 }
 
-bool player::move( Tile *tiles[] )
+bool player::move( Tile *tiles[], float timeStep )
 {
 
-	collider.x += velX;
+	collider.x += velX * timeStep;
 
 	if( ( collider.x < 0 ) || ( collider.x + PLAYER_WIDTH > LEVEL_WIDTH ) || touchesWall( collider, tiles ))
    {
-	   collider.x -= velX;
+	   collider.x -= velX * timeStep;
    }
 
-	collider.y += velY;
+	collider.y += velY * timeStep;
 
 	if( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) || touchesWall( collider, tiles ) )
     {
-		collider.y -= velY;
+		collider.y -= velY * timeStep;
     }
 	return 1;
 }
@@ -471,7 +477,7 @@ void player::clipStop()
 
 void player::render(SDL_Rect& camera)
 {
-	playerMain.render( collider.x - camera.x, collider.y - camera.y, &clip, NULL, NULL, flipType );
+	playerMain.render( (int)collider.x - camera.x, (int)collider.y - camera.y, &clip, NULL, NULL, flipType );
 }
 
 void player::setCamera(SDL_Rect& camera)

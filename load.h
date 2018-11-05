@@ -54,16 +54,18 @@ public:
 	static const int PLAYER_WIDTH = 50;
 	static const int PLAYER_HEIGHT = 89;
 
-	double PLAYER_VEL = 1;
+	double PLAYER_VEL = 250;
 
 	player();
 
 	void handleEvent( SDL_Event& e );
 
-	bool move( Tile *tiles[] );
+	bool move( Tile *tiles[], float timeStep );
 
 	double getX();
 	double getY();
+
+	SDL_Rect getCollider();
 
 	void setCamera( SDL_Rect& camera );
 
@@ -71,10 +73,10 @@ public:
 
 	void clipStop();
 
-
+	SDL_Rect collider;
 
 private:
-	SDL_Rect collider;
+
 
 	SDL_Rect clip;
 

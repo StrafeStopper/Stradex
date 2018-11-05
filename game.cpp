@@ -38,7 +38,7 @@ SDL_Rect screenSpace;
 SDL_Rect wulfBox;
 SDL_Rect zeroClip;
 
-
+Timer stepTimer;
 
 
 
@@ -116,6 +116,11 @@ void level1()
 
     SDL_RenderClear(renderer);
 
+
+    player1.collider.x = 51;
+    player1.collider.y = 01;
+    flipType = SDL_FLIP_NONE;
+
     while (!quit)
     {
       //SDL_RenderClear(renderer);
@@ -133,9 +138,12 @@ void level1()
               player1.handleEvent(e);
           }
 
+          float timeStep = stepTimer.getTicks() / 1000.f;
 
+          player1.move(tileSet, timeStep);
 
-          player1.move(tileSet);
+          stepTimer.start();
+
           player1.setCamera(camera);
           SDL_RenderClear(renderer);
 
@@ -152,13 +160,12 @@ void level1()
 
 
 
-		//x = player1.getX();
-		//y = player1.getY();
+		x = player1.getX();
+		y = player1.getY();
 
 
 
 		player1.render(camera);
-  //  playerMain.render( 100, 100, wulfBox, NULL, NULL, SDL_FLIP_NONE);
 
 
 		SDL_RenderPresent(renderer);
