@@ -21,8 +21,8 @@
 double x = 300;
 double y = 300;
 
-int wulf_w = 50;
-int wulf_h = 89;
+int player_w = 50;
+int player_h = 89;
 
 
 const Uint8* keyState = SDL_GetKeyboardState( NULL );
@@ -158,6 +158,7 @@ void level1()
 
 
 		player1.render(camera);
+  //  playerMain.render( 100, 100, wulfBox, NULL, NULL, SDL_FLIP_NONE);
 
 
 		SDL_RenderPresent(renderer);

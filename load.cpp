@@ -33,8 +33,6 @@ int TOTAL_BUTTONS = 3;
 cTexture title;
 cTexture dungeon_floor;
 cTexture playerMain;
-cTexture giantSword;
-cTexture beowulfSword;
 cTexture buttonsSprite;
 cTexture menuBackground;
 cTexture basicSprite;
@@ -220,6 +218,7 @@ void loadAssets(Tile* tiles[])
 		printf("Failed to load image\n");
 	}
 
+
 	if(!basicSprite.loadFromFile("assets/basicSprite.png"))
 	printf("Failed to load image\n");
 
@@ -400,6 +399,11 @@ player::player()
 	collider.w = PLAYER_WIDTH;
 	collider.h = PLAYER_HEIGHT;
 
+	clip.x = 0;
+	clip.y = 0;
+	clip.w = 50;
+	clip.h = 89;
+
 	velX = 0;
 	velY = 0;
 }
@@ -467,14 +471,14 @@ void player::clipStop()
 
 void player::render(SDL_Rect& camera)
 {
-	playerMain.render( collider.x - camera.x, collider.y - camera.y, &wulf[0], NULL, NULL, flipType);
-
+	playerMain.render( collider.x - camera.x, collider.y - camera.y, &clip, NULL, NULL, flipType );
 }
 
 void player::setCamera(SDL_Rect& camera)
 {
 	camera.x = ( collider.x + PLAYER_WIDTH / 2 ) - SCREEN_WIDTH / 2;
 	camera.y = ( collider.y + PLAYER_HEIGHT / 2 ) - SCREEN_HEIGHT / 2;
+
 
 	if( camera.x < 0 )
 	{

@@ -2,8 +2,8 @@
 #define GAME_H
 
 
-extern int wulf_w;
-extern int wulf_h;
+extern int player_w;
+extern int player_h;
 
 extern bool checkCollision(SDL_Rect a, SDL_Rect b);
 extern 	double x;
