@@ -438,11 +438,6 @@ void player::handleEvent( SDL_Event& e )
 			flipType = SDL_FLIP_NONE;
 			break;
 
-		/*case SDLK_SPACE:
-			jumping = 1;
-			currentJumpForce = jumpForce;
-			break;*/
-
 		case SDLK_q:
 			menu();
 			break;
@@ -461,10 +456,6 @@ void player::handleEvent( SDL_Event& e )
     }
 }
 
-float gravity = 100.0f;
-float fallSpeed = -300.0f;
-float jumpForce = 1000.0f;
-float currentJumpForce = 0.0f;
 bool jumping = 0;
 bool falling = 0;
 

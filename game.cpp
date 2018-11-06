@@ -159,30 +159,6 @@ void level1()
 
           float timeStep = stepTimer.getTicks() / 1000.f;
 
-        /*  if (jumping)
-          {
-              //printf("jump\n" );
-
-              player1.velY -= currentJumpForce * timeStep * 4;
-
-              if (player1.velY <= fallSpeed)
-              {
-                currentJumpForce = fallSpeed;
-                player1.velY += gravity * timeStep * 4;
-              } else {
-                //currentJumpForce = fallSpeed;
-              }
-
-              if(touchesWall(player1.collider, tileSet))
-              {
-                player1.velY = 0;
-                player1.collider.y -= 2;
-                jumping = 0;
-                currentJumpForce = 0.0;
-
-              }
-          }*/
-
 
 
           if (jumping)
