@@ -482,6 +482,18 @@ bool player::move( Tile *tiles[], float timeStep )
 	return 1;
 }
 
+
+bool player::onGround()
+{
+		groundCheck = collider;
+		groundCheck.y += 1;
+		if (touchesWall(groundCheck, tileSet))
+		return 1;
+		else
+		return 0;
+
+}
+
 void player::clipStop()
 {
 	velY = 0;

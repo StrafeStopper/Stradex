@@ -158,7 +158,7 @@ void level1()
           float timeStep = stepTimer.getTicks() / 1000.f;
 
 
-player1.move(tileSet, timeStep);
+          player1.move(tileSet, timeStep);
           if (jumping)
           {
             if(!falling)
@@ -179,6 +179,23 @@ player1.move(tileSet, timeStep);
             }
           }
 
+          if (falling == 0 && jumping == 0)
+          {
+
+            if (!player1.onGround())
+            {
+                printf("falling\n");
+                //falling = 1;
+                player1.velY += (1000 * timeStep);
+                if (touchesWall(player1.collider, tileSet))
+                {
+                  player1.velY = 0;
+                  player1.collider.y = tileSet[currentTile]->getBox().y - 89;
+                }
+            }
+
+
+          }
 
 
           stepTimer.start();

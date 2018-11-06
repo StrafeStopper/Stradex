@@ -61,6 +61,7 @@ public:
 	void handleEvent( SDL_Event& e );
 
 	bool move( Tile *tiles[], float timeStep );
+	bool onGround();
 
 	double getX();
 	double getY();
@@ -79,7 +80,7 @@ public:
 
 private:
 
-
+	SDL_Rect groundCheck;
 	SDL_Rect clip;
 
 
