@@ -158,16 +158,16 @@ void level1()
           float timeStep = stepTimer.getTicks() / 1000.f;
 
 
-
+player1.move(tileSet, timeStep);
           if (jumping)
           {
 
-            player1.velY -= (300 * timeStep);
-            if (player1.collider.y <= (y - 75) || falling == 1)
+            player1.velY -= (1000 * timeStep * 2);
+            if (player1.collider.y <= (y - 70) || falling == 1)
             {
               falling = 1;
               //jumping = 0;
-              player1.velY += (800 * timeStep);
+              player1.velY += (2400 * timeStep * 2);
             }
             if (touchesWall(player1.collider, tileSet))
             {
@@ -178,7 +178,7 @@ void level1()
             }
           }
 
-          player1.move(tileSet, timeStep);
+
 
           stepTimer.start();
 
