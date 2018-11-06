@@ -42,9 +42,10 @@ class Tile
 		int getType();
 
 		SDL_Rect getBox();
+		SDL_Rect tileBox;
 
     private:
-		SDL_Rect tileBox;
+
 
 		int PtileType;
 };
@@ -73,7 +74,7 @@ class Timer
 
 		Uint32 mPausedTicks;
 
-		
+
 		bool mPaused;
 		bool mStarted;
 };
@@ -83,6 +84,7 @@ class Timer
 void setTiles( Tile* tiles[] );
 bool touchesWall( SDL_Rect box, Tile* tiles[] );
 extern Tile* tileSet[ TOTAL_TILES ];
+extern int currentTile;
 
 int close(Tile* tiles[]);
 

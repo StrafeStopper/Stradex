@@ -23,6 +23,7 @@ SDL_Window* window = NULL;
 int SCREEN_WIDTH = 1280;
 int SCREEN_HEIGHT = 720;
 
+int currentTile = 0;
 
 
 bool init()
@@ -133,8 +134,6 @@ SDL_Rect Tile::getBox()
     return tileBox;
 }
 
-
-
 void setTiles( Tile* tiles[] )
 {
 		printf("Setting map tiles...\n");
@@ -210,7 +209,7 @@ void setTiles( Tile* tiles[] )
 	}
 
     map.close();
-		
+
 
 }
 
@@ -222,6 +221,7 @@ bool touchesWall( SDL_Rect box, Tile* tiles[] )
         {
             if( checkCollision( box, tiles[ i ]->getBox() ) )
             {
+								currentTile = i;
                 return true;
             }
         }

@@ -18,8 +18,8 @@
 
 //comment
 
-double x = 300;
-double y = 300;
+double y = 0;
+double y2 = 0;
 
 int player_w = 50;
 int player_h = 89;
@@ -161,20 +161,21 @@ void level1()
 player1.move(tileSet, timeStep);
           if (jumping)
           {
-
+            if(!falling)
             player1.velY -= (1000 * timeStep * 2);
-            if (player1.collider.y <= (y - 79) || falling == 1)
+
+            if (player1.collider.y <= (y - 65) || falling == 1)
             {
               falling = 1;
               //jumping = 0;
-              player1.velY += (2400 * timeStep * 2);
+              player1.velY += (1000 * timeStep * 2);
             }
             if (touchesWall(player1.collider, tileSet))
             {
               jumping = 0;
               falling = 0;
               player1.velY = 0;
-              player1.collider.y = 601;
+              player1.collider.y = tileSet[currentTile]->getBox().y - 89;
             }
           }
 
