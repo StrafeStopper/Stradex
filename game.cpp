@@ -163,7 +163,7 @@ player1.move(tileSet, timeStep);
           {
 
             player1.velY -= (1000 * timeStep * 2);
-            if (player1.collider.y <= (y - 70) || falling == 1)
+            if (player1.collider.y <= (y - 79) || falling == 1)
             {
               falling = 1;
               //jumping = 0;
@@ -174,7 +174,7 @@ player1.move(tileSet, timeStep);
               jumping = 0;
               falling = 0;
               player1.velY = 0;
-              player1.collider.y -= 2;
+              player1.collider.y = 601;
             }
           }
 
