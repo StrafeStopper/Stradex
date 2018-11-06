@@ -19,7 +19,7 @@
 //comment
 
 double y = 0;
-double y2 = 0;
+bool fallingOff = 0;
 
 int player_w = 50;
 int player_h = 89;
@@ -185,7 +185,6 @@ void level1()
             if (!player1.onGround())
             {
                 printf("falling\n");
-                //falling = 1;
                 player1.velY += (1000 * timeStep);
                 if (touchesWall(player1.collider, tileSet))
                 {
