@@ -118,10 +118,9 @@ void level1()
 
 
     player1.collider.x = 51;
-    player1.collider.y = 599;
+    player1.collider.y = 601;
     flipType = SDL_FLIP_NONE;
     jumping = 0;
-    currentJumpForce = 0.0f;
     player1.velY = 0;
     player1.velX = 0;
     falling = 0;
@@ -151,7 +150,6 @@ void level1()
               //falling = 0;
               jumping = 1;
               y = player1.collider.y;
-              //currentJumpForce = jumpForce;
             }
           }
               player1.handleEvent(e);
@@ -176,7 +174,7 @@ void level1()
               jumping = 0;
               falling = 0;
               player1.velY = 0;
-              player1.collider.y -= 1;
+              player1.collider.y -= 2;
             }
           }
 
