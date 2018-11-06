@@ -124,6 +124,7 @@ void level1()
     currentJumpForce = 0.0f;
     player1.velY = 0;
     player1.velX = 0;
+    falling = 0;
 
     while (!quit)
     {
@@ -147,8 +148,10 @@ void level1()
             } else
             if (e.key.keysym.sym == SDLK_SPACE )
             {
+              //falling = 0;
               jumping = 1;
-              currentJumpForce = jumpForce;
+              y = player1.collider.y;
+              //currentJumpForce = jumpForce;
             }
           }
               player1.handleEvent(e);
@@ -156,7 +159,7 @@ void level1()
 
           float timeStep = stepTimer.getTicks() / 1000.f;
 
-          if (jumping)
+        /*  if (jumping)
           {
               //printf("jump\n" );
 
@@ -178,6 +181,27 @@ void level1()
                 currentJumpForce = 0.0;
 
               }
+          }*/
+
+
+
+          if (jumping)
+          {
+
+            player1.velY -= (300 * timeStep);
+            if (player1.collider.y <= (y - 75) || falling == 1)
+            {
+              falling = 1;
+              //jumping = 0;
+              player1.velY += (800 * timeStep);
+            }
+            if (touchesWall(player1.collider, tileSet))
+            {
+              jumping = 0;
+              falling = 0;
+              player1.velY = 0;
+              player1.collider.y -= 1;
+            }
           }
 
           player1.move(tileSet, timeStep);

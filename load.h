@@ -109,6 +109,7 @@ extern float fallSpeed;
 extern float jumpForce;
 extern float currentJumpForce;
 extern bool jumping;
+extern bool falling;
 
 
 

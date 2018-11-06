@@ -466,6 +466,7 @@ float fallSpeed = -300.0f;
 float jumpForce = 1000.0f;
 float currentJumpForce = 0.0f;
 bool jumping = 0;
+bool falling = 0;
 
 bool player::move( Tile *tiles[], float timeStep )
 {
