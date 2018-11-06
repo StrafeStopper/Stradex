@@ -179,23 +179,12 @@ void level1()
             }
           }
 
-          if (falling == 0 && jumping == 0)
+
+          if (falling == 0 && jumping == 0 && !player1.onGround())
           {
-
-            if (!player1.onGround())
-            {
-                printf("falling\n");
-                player1.velY += (1000 * timeStep);
-                if (touchesWall(player1.collider, tileSet))
-                {
-                  player1.velY = 0;
-                  player1.collider.y = tileSet[currentTile]->getBox().y - 89;
-                }
-            }
-
-
+              jumping = 1;
+              falling = 1;
           }
-
 
           stepTimer.start();
 

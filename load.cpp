@@ -462,10 +462,6 @@ bool falling = 0;
 bool player::move( Tile *tiles[], float timeStep )
 {
 
-
-
-
-
 	collider.x += velX * timeStep;
 
 	if( ( collider.x < 0 ) || ( collider.x + PLAYER_WIDTH > LEVEL_WIDTH ) || touchesWall( collider, tiles ))
