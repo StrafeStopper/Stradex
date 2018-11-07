@@ -175,9 +175,28 @@ void level1()
               jumping = 0;
               falling = 0;
               player1.velY = 0;
-              player1.collider.y = tileSet[currentTile]->getBox().y - 89;
+              player1.collider.y = tileSet[bottomTile]->getBox().y - 89;
             }
           }
+
+          /*if(player1.leftClip())
+          {
+            //printf("clipping left side\n");
+            player1.velX = 0;
+            player1.collider.x = tileSet[bottomTile]->getBox().x - 82;
+            //player1.collider.y = player1.clipCheck.y;
+            player1.velX = 0;
+          }
+
+          if(player1.rightClip())
+          {
+            //printf("clipping right side \n");
+            player1.velX = 0;
+            player1.collider.x = tileSet[bottomTile]->getBox().x + 32;
+            //player1.collider.y = player1.clipCheck.y;
+            player1.velX = 0;
+          }*/
+
 
 
           if (falling == 0 && jumping == 0 && !player1.onGround())
@@ -186,21 +205,7 @@ void level1()
               falling = 1;
           }
 
-          if(player1.rightClip())
-          {
-            //printf("clipping right side \n");
-            player1.velX = 0;
-            player1.collider.x = tileSet[currentTile]->getBox().x + 32;
-            player1.velX = 0;
-          }
 
-          if(player1.leftClip())
-          {
-            //printf("clipping left side\n");
-            player1.velX = 0;
-            player1.collider.x = tileSet[currentTile]->getBox().x - 82;
-            player1.velX = 0;
-          }
 
           stepTimer.start();
 

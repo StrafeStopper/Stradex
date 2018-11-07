@@ -23,7 +23,9 @@ SDL_Window* window = NULL;
 int SCREEN_WIDTH = 1280;
 int SCREEN_HEIGHT = 720;
 
-int currentTile = 0;
+int bottomTile = 0;
+int leftTile = 0;
+int rightTile = 0;
 
 
 bool init()
@@ -221,7 +223,7 @@ bool touchesWall( SDL_Rect box, Tile* tiles[] )
         {
             if( checkCollision( box, tiles[ i ]->getBox() ) )
             {
-								currentTile = i;
+								bottomTile = i;
                 return true;
             }
         }

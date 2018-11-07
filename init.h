@@ -84,7 +84,9 @@ class Timer
 void setTiles( Tile* tiles[] );
 bool touchesWall( SDL_Rect box, Tile* tiles[] );
 extern Tile* tileSet[ TOTAL_TILES ];
-extern int currentTile;
+extern int bottomTile;
+extern int leftTile;
+extern int rightTile;
 
 int close(Tile* tiles[]);
 
