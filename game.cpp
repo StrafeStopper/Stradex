@@ -186,6 +186,20 @@ void level1()
               falling = 1;
           }
 
+          if(player1.rightClip())
+          {
+            //printf("clipping right side \n");
+            player1.velX = 0;
+            player1.collider.x = tileSet[currentTile]->getBox().x + 80;
+          }
+
+          if(player1.leftClip())
+          {
+            //printf("clipping left side\n");
+            player1.velX = 0;
+            player1.collider.x = tileSet[currentTile]->getBox().x - 51;
+          }
+
           stepTimer.start();
 
           player1.setCamera(camera);
@@ -195,9 +209,6 @@ void level1()
       {
         tileSet[ i ]->render( camera );
       }
-
-
-    //player1.clipStop();
 
 
 

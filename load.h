@@ -62,6 +62,8 @@ public:
 
 	bool move( Tile *tiles[], float timeStep );
 	bool onGround();
+	bool leftClip();
+	bool rightClip();
 
 	double getX();
 	double getY();
@@ -80,7 +82,7 @@ public:
 
 private:
 
-	SDL_Rect groundCheck;
+	SDL_Rect clipCheck;
 	SDL_Rect clip;
 
 
