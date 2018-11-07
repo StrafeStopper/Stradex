@@ -54,7 +54,7 @@ public:
 	static const int PLAYER_WIDTH = 50;
 	static const int PLAYER_HEIGHT = 89;
 
-	double PLAYER_VEL = 190;
+	double PLAYER_VEL = 191;
 
 	player();
 
@@ -77,12 +77,13 @@ public:
 	void clipStop();
 
 	SDL_Rect collider;
+	SDL_Rect clipCheck;
 	double posX, posY;
 	double velX, velY;
 
 private:
 
-	SDL_Rect clipCheck;
+
 	SDL_Rect clip;
 
 

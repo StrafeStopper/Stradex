@@ -450,8 +450,8 @@ void player::handleEvent( SDL_Event& e )
         {
 		//case SDLK_w: velY += PLAYER_VEL; break;
 		//case SDLK_s: velY -= PLAYER_VEL; break;
-		case SDLK_a: velX += PLAYER_VEL; break;
-		case SDLK_d: velX -= PLAYER_VEL; break;
+		case SDLK_a: velX = 0; break;
+		case SDLK_d: velX = 0; break;
         }
     }
 }

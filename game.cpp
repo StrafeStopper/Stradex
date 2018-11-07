@@ -190,14 +190,16 @@ void level1()
           {
             //printf("clipping right side \n");
             player1.velX = 0;
-            player1.collider.x = tileSet[currentTile]->getBox().x + 80;
+            player1.collider.x = tileSet[currentTile]->getBox().x + 32;
+            player1.velX = 0;
           }
 
           if(player1.leftClip())
           {
             //printf("clipping left side\n");
             player1.velX = 0;
-            player1.collider.x = tileSet[currentTile]->getBox().x - 51;
+            player1.collider.x = tileSet[currentTile]->getBox().x - 82;
+            player1.velX = 0;
           }
 
           stepTimer.start();
