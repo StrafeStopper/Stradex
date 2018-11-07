@@ -473,7 +473,7 @@ bool player::move( Tile *tiles[], float timeStep )
 	//collider.y += velY * timeStep;
 	collider.y += velY;
 
-	if( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) /*|| touchesWall( collider, tiles )*/ )
+	if( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) || touchesWall( collider, tiles ) )
     {
 		collider.y -= velY * timeStep;
     }
