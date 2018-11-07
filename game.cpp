@@ -179,11 +179,11 @@ void level1()
             }
           }
 
-          /*if(player1.leftClip())
+          if(player1.leftClip())
           {
             //printf("clipping left side\n");
             player1.velX = 0;
-            player1.collider.x = tileSet[bottomTile]->getBox().x - 82;
+            player1.collider.x -= 2;
             //player1.collider.y = player1.clipCheck.y;
             player1.velX = 0;
           }
@@ -192,10 +192,10 @@ void level1()
           {
             //printf("clipping right side \n");
             player1.velX = 0;
-            player1.collider.x = tileSet[bottomTile]->getBox().x + 32;
+            player1.collider.x += 2;
             //player1.collider.y = player1.clipCheck.y;
             player1.velX = 0;
-          }*/
+          }
 
 
 
