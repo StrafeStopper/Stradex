@@ -55,7 +55,7 @@ public:
 	static const int PLAYER_HEIGHT = 89;
 
 	//double PLAYER_VEL = 191;
-	double PLAYER_VEL = 2;
+	double PLAYER_VEL = settings[2];
 
 	player();
 

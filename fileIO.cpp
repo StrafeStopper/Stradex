@@ -18,17 +18,15 @@
 
 using namespace std;
 
-int loadText(std::string path)
+//int settings[100];
+
+int loadSettings(std::string path)
 {
   fstream map;
 
-  map.open("settings/window_size.txt");
-  int t1, t2;
-  map >> t1;
-  map >> t2;
-
-  SCREEN_WIDTH = t1;
-  SCREEN_HEIGHT = t2;
-  //cout << t1 << endl << t2 << endl;
+  map.open(path.c_str());
+  for (int i = 0; i < 100; i++)
+  map >> settings[i];
   map.close();
+  player1.PLAYER_VEL = settings[2];
 }

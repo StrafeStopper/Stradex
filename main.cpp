@@ -32,14 +32,14 @@ double degrees = 0;
 std::string command;
 bool cmdLoop = 1;
 
-
+int settings[100];
 
 
 
 int main(int argc, char* args[])
 {
 	printf("Welcome to the <Light> development project!\nCreated and developed by Strafe_Stopper\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
-	//loadText("settings/window_size.txt");
+	loadSettings("settings/settings.txt");
 	init();
 	loadAssets(tileSet);
 	printf("Running...\n");

@@ -5,7 +5,7 @@
 
 extern SDL_Texture* texture;
 
-
+extern int settings[100];
 
 
 extern Uint8 r;
