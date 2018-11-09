@@ -22,11 +22,14 @@ using namespace std;
 
 int loadSettings(std::string path)
 {
+  printf("Loading settings...\n");
   fstream map;
-
   map.open(path.c_str());
   for (int i = 0; i < 100; i++)
   map >> settings[i];
+  printf("Done!\n");
   map.close();
+  printf("Applying settings...\n");
   player1.PLAYER_VEL = settings[2];
+  printf("Done!\n");
 }
