@@ -159,25 +159,6 @@ void level1()
 
 
           player1.move(tileSet, timeStep);
-        /*  if (jumping)
-          {
-            if(!falling)
-            player1.velY -= (1000 * timeStep * 2);
-
-            if (player1.collider.y <= (y - 65) || falling == 1)
-            {
-              falling = 1;
-              //jumping = 0;
-              player1.velY += (1000 * timeStep * 2);
-            }
-            if (touchesWall(player1.collider, tileSet))
-            {
-              jumping = 0;
-              falling = 0;
-              player1.velY = 0;
-              player1.collider.y = tileSet[bottomTile]->getBox().y - 89;
-            }
-          }*/
 
           if (jumping)
           {
@@ -199,24 +180,14 @@ void level1()
             }
           }
 
-          /*if(player1.leftClip())
+          if(player1.roofClip())
           {
-            //printf("clipping left side\n");
-            player1.velX = 0;
-            player1.collider.x -= 2;
-            //player1.collider.y = player1.clipCheck.y;
-            player1.velX = 0;
+            //printf("clipping roof\n");
+            jumping = 1;
+            falling = 1;
+            player1.velY = 0;
+            player1.collider.y = tileSet[bottomTile]->getBox().y + 31;
           }
-
-          if(player1.rightClip())
-          {
-            //printf("clipping right side \n");
-            player1.velX = 0;
-            player1.collider.x += 2;
-            //player1.collider.y = player1.clipCheck.y;
-            player1.velX = 0;
-          }
-          */
 
 
 

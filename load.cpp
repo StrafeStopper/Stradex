@@ -473,9 +473,9 @@ bool player::move( Tile *tiles[], float timeStep )
 	//collider.y += velY * timeStep;
 	collider.y += velY;
 
-	if( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) || touchesWall( collider, tiles ) )
+	if( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) /*|| touchesWall( collider, tiles )*/ )
     {
-		collider.y -= velY * timeStep;
+		collider.y -= velY;
     }
 	return 1;
 }
@@ -492,26 +492,16 @@ bool player::onGround()
 
 }
 
-bool player::leftClip()
+bool player::roofClip()
 {
 	clipCheck = collider;
-	clipCheck.x += 1;
+	clipCheck.y -= 1;
 	if(touchesWall(clipCheck, tileSet))
 	return 1;
 	else
 	return 0;
 }
 
-bool player::rightClip()
-{
-	clipCheck = collider;
-	clipCheck.x -= 1;
-	if (touchesWall(clipCheck, tileSet))
-	return 1;
-	else
-	return 0;
-
-}
 void player::clipStop()
 {
 	velY = 0;

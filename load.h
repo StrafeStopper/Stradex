@@ -63,8 +63,7 @@ public:
 
 	bool move( Tile *tiles[], float timeStep );
 	bool onGround();
-	bool leftClip();
-	bool rightClip();
+	bool roofClip();
 
 	double getX();
 	double getY();
