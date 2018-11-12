@@ -180,14 +180,28 @@ void level1()
             }
           }
 
-        /*  if(player1.roofClip())
+          int roofTest = 0;
+          roofTest = player1.roofClip();
+          if(roofTest > 0)
           {
             //printf("clipping roof\n");
-            jumping = 1;
+
+            /************************
+            CHECK IF GROUND IS 30 PIXELS BELOW AND TP PLAYER 30 PIXELS DOWN
+            *************************/
+            if (roofTest == 10)
+            {
+              printf("10\n");
+              jumping = 1;
+              falling = 1;
+              player1.velY = 0;
+              player1.collider.y = tileSet[bottomTile]->getBox().y + 61;
+            }
+            /*jumping = 1;
             falling = 1;
             player1.velY = 0;
-            player1.collider.y = tileSet[bottomTile]->getBox().y + 31;
-          }*/
+            player1.collider.y = tileSet[bottomTile]->getBox().y + 31;*/
+          }
 
 
 

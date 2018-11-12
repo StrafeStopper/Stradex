@@ -492,14 +492,29 @@ bool player::onGround()
 
 }
 
-bool player::roofClip()
+int player::roofClip()
 {
 	clipCheck = collider;
-	clipCheck.y -= 1;
+	clipCheck.y -= 2;
 	if(touchesWall(clipCheck, tileSet))
-	return 1;
+	{
+		clipCheck = collider;
+		clipCheck.y += 32;
+		if(!touchesWall(clipCheck, tileSet))
+		{
+			//(rg) pair r = touched roof. g = ground is 30 pixels (or less) below
+			//10 roof is touched and ground is not below
+			return 10;
+		} else {
+			//11 roof is touched and ground is below
+			return 11;
+		}
+	}
 	else
-	return 0;
+	{
+		//00 roof is not touched and ground is N/A
+		return 00;
+	}
 }
 
 void player::clipStop()
