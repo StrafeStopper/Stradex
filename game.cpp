@@ -180,14 +180,14 @@ void level1()
             }
           }
 
-          if(player1.roofClip())
+        /*  if(player1.roofClip())
           {
             //printf("clipping roof\n");
             jumping = 1;
             falling = 1;
             player1.velY = 0;
             player1.collider.y = tileSet[bottomTile]->getBox().y + 31;
-          }
+          }*/
 
 
 
