@@ -145,12 +145,15 @@ void level1()
             {
               //do nothing
             } else
+            if(PERSPECTIVE_STYLE)
+            {
             if (e.key.keysym.sym == SDLK_SPACE )
             {
               //falling = 0;
               jumping = 1;
               y = player1.collider.y;
             }
+          }
           }
               player1.handleEvent(e);
           }
@@ -160,6 +163,8 @@ void level1()
 
           player1.move(tileSet, timeStep);
 
+          if (PERSPECTIVE_STYLE)
+          {
           if (jumping)
           {
             if(!falling)
@@ -210,7 +215,7 @@ void level1()
               jumping = 1;
               falling = 1;
           }
-
+}
 
 
           stepTimer.start();

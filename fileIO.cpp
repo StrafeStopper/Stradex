@@ -16,6 +16,8 @@
 #include <string>
 #include <cmath>
 
+bool PERSPECTIVE_STYLE;
+
 using namespace std;
 
 //int settings[100];
@@ -31,5 +33,6 @@ int loadSettings(std::string path)
   map.close();
   printf("Applying settings...\n");
   player1.PLAYER_VEL = settings[2];
+  PERSPECTIVE_STYLE = settings[3];
   printf("Done!\n");
 }

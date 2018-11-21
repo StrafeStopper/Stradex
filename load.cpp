@@ -424,10 +424,9 @@ void player::handleEvent( SDL_Event& e )
 
         switch( e.key.keysym.sym )
         {
-		//case SDLK_w: velY -= PLAYER_VEL;
-		//	break;
-		//case SDLK_s: velY += PLAYER_VEL;
-		//	break;
+
+		case SDLK_w: if (!PERSPECTIVE_STYLE) velY -= PLAYER_VEL; break;
+		case SDLK_s: if (!PERSPECTIVE_STYLE) velY += PLAYER_VEL; break;
 		case SDLK_a:
 			velX -= PLAYER_VEL;
 			flipType = SDL_FLIP_HORIZONTAL;
@@ -448,8 +447,9 @@ void player::handleEvent( SDL_Event& e )
     {
         switch( e.key.keysym.sym )
         {
-		//case SDLK_w: velY += PLAYER_VEL; break;
-		//case SDLK_s: velY -= PLAYER_VEL; break;
+
+		case SDLK_w: if (!PERSPECTIVE_STYLE) velY += PLAYER_VEL; break;
+		case SDLK_s: if (!PERSPECTIVE_STYLE) velY -= PLAYER_VEL; break;
 		case SDLK_a: velX = 0; break;
 		case SDLK_d: velX = 0; break;
         }
@@ -462,23 +462,35 @@ bool falling = 0;
 bool player::move( Tile *tiles[], float timeStep )
 {
 
-	//collider.x += velX * timeStep;
-	collider.x += velX;
+	if (!PERSPECTIVE_STYLE)
+		collider.x += velX * timeStep;
+	else
+		collider.x += velX;
 
 	if( ( collider.x < 0 ) || ( collider.x + PLAYER_WIDTH > LEVEL_WIDTH ) || touchesWall( collider, tiles ))
-   {
 	   collider.x -= velX;
-   }
+	if (!PERSPECTIVE_STYLE)
+		collider.y += velY * timeStep;
+	else
+		collider.y += velY;
 
-	//collider.y += velY * timeStep;
-	collider.y += velY;
-
+	if (PERSPECTIVE_STYLE)
+	{
 	if( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) /*|| touchesWall( collider, tiles )*/ )
-    {
+	{
 		collider.y -= velY;
-    }
+	}
+}
+
+	if (!PERSPECTIVE_STYLE)
+	{
+		if ( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) || touchesWall( collider, tiles ) )
+		collider.y -= velY;
+	}
+
 	return 1;
 }
+
 
 
 bool player::onGround()
