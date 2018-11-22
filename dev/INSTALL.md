@@ -2,10 +2,31 @@
 
 This engine has no install client
 
-Run `install.sh` to install the needed dependencies to compile and run the program
+Follow the instructions below to install dependencies, compile, and run the engine
 
-To compile in Linux run `make linux` and use `./light` to run the engine
+The engine can only be developed and compiled in Linux
 
-To compile in Windows run `make windows` and use `wine light.exe`
+1. Installing dependencies:
+  * Linux:
+    * run `install.sh` to install the needed dependencies
 
-It runs with wine in Linux but doesn't run in Windows quite yet
+  * Windows:
+    * run `install.sh` to install the needed dependencies
+
+2. Compiling:
+  * Linux:
+    * run `make linux` to compile
+
+  * Windows
+    * run `make windows` to compile
+
+3. Running the engine:
+  * Linux:
+    * run `./light`
+
+  * Windows:
+    * run `wine light.exe` in linux
+    * double click on `light.exe` in windows
+
+
+It runs with wine in Linux but doesn't run in Windows quite yet. A fix for this is planned but not currently being worked on.
