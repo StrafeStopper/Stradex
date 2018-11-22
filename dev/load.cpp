@@ -43,6 +43,9 @@ mButton quitButton;
 
 enum buttonTypes
 {
+	//button states
+	//R is regular
+	//I is inside, mouse over
 	BUTTON_R = 0,
 	BUTTON_I = 1
 };
@@ -64,6 +67,7 @@ int enemyHealth = 100;
 
 cTexture::cTexture()
 {
+	//init textre for loading
 	hTexture = NULL;
 	hWidth = 0;
 	hHeight = 0;
@@ -78,7 +82,7 @@ cTexture::~cTexture()
  void cTexture::free()
  {
 
-
+	 //DESTROY
  		SDL_DestroyTexture(hTexture);
  		hTexture = NULL;
  		hWidth = 0;
@@ -88,6 +92,8 @@ cTexture::~cTexture()
 
 bool cTexture::loadFromFile(std::string path)
 {
+	//load textures from image files
+	//dont mess with it because it will break
 	free();
 	SDL_Texture* newTexture = NULL;
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
@@ -108,6 +114,8 @@ bool cTexture::loadFromFile(std::string path)
 
 void cTexture::render(int x, int y, SDL_Rect * clip, double angle, SDL_Point * center, SDL_RendererFlip flip)
 {
+	//render the texture as requested
+	//dont mess with it because it will break
 	SDL_Rect renderQuad = { x, y, hWidth, hHeight };
 	//SDL_Rect renderQuad = { x, y, clip->w, clip->h };
 
@@ -122,6 +130,7 @@ void cTexture::render(int x, int y, SDL_Rect * clip, double angle, SDL_Point * c
 
 bool cTexture::collisionCheck(SDL_Rect a, SDL_Rect b)
 {
+	//duplicate collision detection function for texture instead of players
 	int leftA, leftB;
 	int rightA, rightB;
 	int topA, topB;
@@ -162,6 +171,8 @@ bool cTexture::collisionCheck(SDL_Rect a, SDL_Rect b)
 
 void cTexture::loadFromRenderedText(std::string textTexture, SDL_Color color)
 {
+	//load font for text rendering
+	//dont mess with it because it'll break
 	free();
 
 	SDL_Surface* textSurface = TTF_RenderText_Solid(sFont, textTexture.c_str(), textColor);
@@ -194,7 +205,7 @@ int cTexture::getHeight() { return hHeight; }
 
 void loadAssets(Tile* tiles[])
 {
-	//printf("Loading image assets in loadSurface(std::string path)...\n");
+	//load all of the textures
 	printf("Loading image assets in loadAssets()...\n");
 
 	if (!dungeon_floor.loadFromFile("assets/dungeon_floor.jpg"))
@@ -222,6 +233,10 @@ void loadAssets(Tile* tiles[])
 	if(!basicSprite.loadFromFile("assets/basicSprite.png"))
 	printf("Failed to load image\n");
 
+
+
+//sprite clips for textures
+//make sure you check your numbers so textures don't get rendered cut off or missing
 	backRect[0].x = 0;
 	backRect[0].y = 0;
 	backRect[0].w = 1280;
@@ -254,7 +269,7 @@ void loadAssets(Tile* tiles[])
 
 
 	sFont = TTF_OpenFont("assets/Ubuntu-L.ttf", 150);
-	title.loadFromRenderedText("<light>", textColor);
+	title.loadFromRenderedText("STRADEX", textColor);
 
 
 	printf("Done!\n");
@@ -264,6 +279,7 @@ void loadAssets(Tile* tiles[])
 
 mButton::mButton()
 {
+	//init button
 	mPos.x = 0;
 	mPos.y = 0;
 
@@ -272,17 +288,21 @@ mButton::mButton()
 
 void mButton::setPosition(int x, int y)
 {
+	//put the button in its place
 	mPos.x = x;
 	mPos.y = y;
 }
 
 void mButton::render()
 {
+	//render the button
 	buttonsSprite.render(mPos.x, mPos.y, &buttonsClip[mButtonCurrent], NULL, NULL, SDL_FLIP_NONE);
 }
 
 bool mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 {
+	//check for mouse events on the buttons
+	//changes the look of the button as needed
 	 if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP )
 	 {
 		 int x, y; SDL_GetMouseState( &x, &y );
@@ -391,6 +411,7 @@ return 0;
 
 player::player()
 {
+	//init player
 	posX = 100;
 	posY = 100;
 
@@ -421,13 +442,13 @@ SDL_Rect player::getCollider()
 void player::handleEvent( SDL_Event& e )
 {
 
-
+//check for player button events to allow movement
 	if( e.type == SDL_KEYDOWN && e.key.repeat == 0 )
     {
 
         switch( e.key.keysym.sym )
         {
-
+//if a key is pressed or released , add velocity accordingly
 		case SDLK_w:
 			if (!PERSPECTIVE_STYLE)
 			velY -= PLAYER_VEL;
@@ -459,8 +480,16 @@ void player::handleEvent( SDL_Event& e )
         switch( e.key.keysym.sym )
         {
 
-		case SDLK_w: if (!PERSPECTIVE_STYLE) velY += PLAYER_VEL; break;
-		case SDLK_s: if (!PERSPECTIVE_STYLE) velY -= PLAYER_VEL; break;
+		case SDLK_w:
+			if (!PERSPECTIVE_STYLE)
+			velY += PLAYER_VEL;
+			break;
+
+		case SDLK_s:
+			if (!PERSPECTIVE_STYLE)
+			velY -= PLAYER_VEL;
+			break;
+
 		case SDLK_a: velX = 0; break;
 		case SDLK_d: velX = 0; break;
         }
@@ -472,14 +501,23 @@ bool falling = 0;
 
 bool player::move( Tile *tiles[], float timeStep )
 {
-
+//move the player and check if it touches a wall or level bounds
 	if (!PERSPECTIVE_STYLE)
 		collider.x += velX * timeStep;
 	else if(PERSPECTIVE_STYLE)
 		collider.x += velX;
 
-	if( ( collider.x < 0 ) || ( collider.x + PLAYER_WIDTH > LEVEL_WIDTH ) || touchesWall( collider, tiles ))
-	   collider.x -= velX;
+	if (!PERSPECTIVE_STYLE)
+	{
+		if( ( collider.x < 0 ) || ( collider.x + PLAYER_WIDTH > LEVEL_WIDTH ) || touchesWall( collider, tiles ))
+	   	collider.x -= velX * timeStep;
+	}
+
+	if (PERSPECTIVE_STYLE)
+	{
+		if( ( collider.x < 0 ) || ( collider.x + PLAYER_WIDTH > LEVEL_WIDTH ) || touchesWall( collider, tiles ))
+	   	collider.x -= velX;
+	}
 
 	if (!PERSPECTIVE_STYLE)
 		collider.y += velY * timeStep;
@@ -497,7 +535,7 @@ bool player::move( Tile *tiles[], float timeStep )
 	if (!PERSPECTIVE_STYLE)
 	{
 		if ( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) || touchesWall( collider, tiles ) )
-		collider.y -= velY;
+		collider.y -= velY * timeStep;
 	}
 
 	return 1;
@@ -507,6 +545,7 @@ bool player::move( Tile *tiles[], float timeStep )
 
 bool player::onGround()
 {
+	//check if the player is on the ground
 		clipCheck = collider;
 		clipCheck.y += 1;
 		if (touchesWall(clipCheck, tileSet))
@@ -518,6 +557,7 @@ bool player::onGround()
 
 int player::roofClip()
 {
+	//check if the player is touches the roof while jumping
 	clipCheck = collider;
 	clipCheck.y -= 2;
 	if(touchesWall(clipCheck, tileSet))
@@ -543,17 +583,21 @@ int player::roofClip()
 
 void player::clipStop()
 {
+	//hard stop the player
+	//just for testing
 	velY = 0;
 	velX = 0;
 }
 
 void player::render(SDL_Rect& camera)
 {
+	//render the player after movement
 	playerMain.render( (int)collider.x - camera.x, (int)collider.y - camera.y, &clip, NULL, NULL, flipType );
 }
 
 void player::setCamera(SDL_Rect& camera)
 {
+	//set the camera after the player moves 
 	camera.x = ( collider.x + PLAYER_WIDTH / 2 ) - SCREEN_WIDTH / 2;
 	camera.y = ( collider.y + PLAYER_HEIGHT / 2 ) - SCREEN_HEIGHT / 2;
 

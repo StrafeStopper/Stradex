@@ -48,6 +48,9 @@ double angle = 0;
 
 bool checkCollision(SDL_Rect a, SDL_Rect b)
 {
+  //duel axis collision detection
+  //checks x and y axis from 2 rects for a clip
+
   int leftA, leftB;
 	int rightA, rightB;
 	int topA, topB;
@@ -83,9 +86,6 @@ bool checkCollision(SDL_Rect a, SDL_Rect b)
      return 0;
  }
 
-if(leftB == 1100)
-clip = 1;
-
  return 1;
 }
 
@@ -94,6 +94,9 @@ clip = 1;
 
 void level1()
 {
+    //start point for the main level
+
+    //init a few level specific things
     SDL_ShowWindow(window);
     SDL_RenderClear(renderer);
 
@@ -127,12 +130,11 @@ void level1()
 
     while (!quit)
     {
-      //SDL_RenderClear(renderer);
 
-        dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
-
+        //dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
 
 
+        //check for events like quitting, button pushesx etc
         while( SDL_PollEvent( &e ) != 0 )
         {
             if( e.type == SDL_QUIT )
@@ -149,35 +151,48 @@ void level1()
             {
             if (e.key.keysym.sym == SDLK_SPACE )
             {
-              //falling = 0;
               jumping = 1;
               y = player1.collider.y;
             }
           }
           }
+              //check movement
               player1.handleEvent(e);
           }
 
+          //set physics ticks for frame independent movement
+          //change the number for different physics speed
+          //it works fine like this so try not to change it 
           float timeStep = stepTimer.getTicks() / 1000.f;
 
-
+          //move the player and check for collision
           player1.move(tileSet, timeStep);
 
+
+          //if perspective is set to platform handle jumping
           if (PERSPECTIVE_STYLE)
           {
           if (jumping)
           {
+            //I don't remember exactly how I got this working but I did. Try not to mess with it because it works fine
+            //changing ANYTHING in this will probably break physics, please try to leave it alone
             if(!falling)
-            player1.velY -= (1);
+            {
+              //this is the jumping speed, changing it will probably break some physics
+              player1.velY -= (1);
+            }
 
             if (player1.collider.y <= (y - 65) || falling == 1)
             {
+              //if the player jumps 65 pixels above where it started, start falling
               falling = 1;
-              //jumping = 0;
+
+              //fall speed, try not to change this either, it will probably break some physics
               player1.velY += (1);
             }
             if (touchesWall(player1.collider, tileSet))
             {
+              //while falling, if the player touches the ground, stop faling and teleport exactly on top of the ground
               jumping = 0;
               falling = 0;
               player1.velY = 0;
@@ -186,6 +201,8 @@ void level1()
           }
 
           int roofTest = 0;
+          //detects roof collision and if the player can be safly teleported down to the ground if clipped
+          //this doesnt work very well yet
           roofTest = player1.roofClip();
           if(roofTest > 0)
           {
@@ -208,27 +225,31 @@ void level1()
 
           if (falling == 0 && jumping == 0 && !player1.onGround())
           {
+              //if the player is not falling or jumping already
+              //and the player is not on the ground, fall until the ground is hit
               jumping = 1;
               falling = 1;
           }
 }
 
-
+          //start the tick timer
           stepTimer.start();
 
+          //move the camera acording to player movement
           player1.setCamera(camera);
           SDL_RenderClear(renderer);
 
     for( int i = 0; i < TOTAL_TILES; ++i )
       {
+        //render the level
         tileSet[ i ]->render( camera );
       }
 
 
-
+    //render the player inside the camera view
 		player1.render(camera);
 
-
+    //show the completed render
 		SDL_RenderPresent(renderer);
 
     }

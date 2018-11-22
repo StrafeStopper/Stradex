@@ -19,9 +19,10 @@
 SDL_Renderer* renderer = NULL;
 SDL_Window* window = NULL;
 
-
+//default screen size, it is changed by the settings on launch anyway so this doesn't matter
 int SCREEN_WIDTH = 1280;
 int SCREEN_HEIGHT = 720;
+
 
 int bottomTile = 0;
 int leftTile = 0;
@@ -30,15 +31,21 @@ int rightTile = 0;
 
 bool init()
 {
+	//INIT ALL THE THINGS
 	printf("Booting up SDL engine...\n");
 	bool boot = 1;
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
+		//if it failed for some reason
 		printf("SDL failed to initialize \n");
 		boot = 0;
 	}
 	else {
 		printf("SDL initialized!\n");
+		//create the window
+		//the first value is the window name, change as you please
+		//the last value are SDL flags for various things such as redering api
+		//it works fine with default flags, opengl has a few issues, change at your own risk
 		window = SDL_CreateWindow("STRADEX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, settings[0], settings[1], SDL_WINDOW_HIDDEN /*| SDL_WINDOW_OPENGL*/);
 		if(window == NULL)
 		{
@@ -47,6 +54,10 @@ bool init()
 		} else
 			printf("Window created!\n");
 
+		//create renderer
+		//do not change the first 2 values
+		//last value is rendering flags
+		//change as you dare but it works fine as is
 
 		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
@@ -57,6 +68,9 @@ bool init()
 		printf("Renderer created\n");
 
 		printf("Initializing SDL_image...\n");
+		//int image libraries with png support
+		//dont add any more flags
+		//the default SDL engine supports most formats
 		int imgFlags = IMG_INIT_PNG;
 		if (!(IMG_Init(imgFlags) & imgFlags))
 		{
@@ -71,6 +85,7 @@ bool init()
 
 		if (TTF_Init() == -1)
 		{
+			//init ttf for text rendering
 			printf("Failed to initialize TTF\n");
 			boot = 0;
 		}
@@ -79,6 +94,7 @@ bool init()
 		}
 
 		printf("Setting render draw color...\n");
+		//render backround color for empty scences
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0xFF);
 		printf("Render draw color set!\n");
 
@@ -91,6 +107,7 @@ bool init()
 
 
 
+//a few level and tile vars
 int LEVEL_WIDTH = 2010;
 int LEVEL_HEIGHT = 720;
 
@@ -108,6 +125,7 @@ int TILE_GREEN = 4;
 
 Tile::Tile( int x, int y, int tileType )
 {
+	//construct the tile class
     tileBox.x = x;
     tileBox.y = y;
 
@@ -119,7 +137,7 @@ Tile::Tile( int x, int y, int tileType )
 
 void Tile::render( SDL_Rect& camera )
 {
-
+		//render the tile if its in the cameras view
     if( checkCollision( camera, tileBox ) )
     {
         basicSprite.render( tileBox.x - camera.x, tileBox.y - camera.y, &spriteClips[ PtileType ] );
@@ -138,6 +156,7 @@ SDL_Rect Tile::getBox()
 
 void setTiles( Tile* tiles[] )
 {
+	//load map file and set the tiles
 		printf("Setting map tiles...\n");
     int x = 0, y = 0;
 
@@ -183,6 +202,7 @@ void setTiles( Tile* tiles[] )
 			}
 		//}
 
+		//load tiles from texture
 			spriteClips[ TILE_BLACK ].x = 0;
 			spriteClips[ TILE_BLACK ].y = 0;
 			spriteClips[ TILE_BLACK ].w = TILE_WIDTH;
@@ -217,6 +237,7 @@ void setTiles( Tile* tiles[] )
 
 bool touchesWall( SDL_Rect box, Tile* tiles[] )
 {
+	//check if the player touces a wall
     for( int i = 0; i < TOTAL_TILES; ++i )
     {
         if( ( tiles[ i ]->getType() == TILE_BLACK )/* && ( tiles[ i ]->getType() <= TILE_BLACK ) */)
@@ -235,6 +256,8 @@ bool touchesWall( SDL_Rect box, Tile* tiles[] )
     Tile* tileSet[ TOTAL_TILES ];
 
 
+//DO NOT mess with the timer
+//I will not comment this beacause no one should need to understand or touch this
 		Timer::Timer()
 		{
 		    mStartTicks = 0;
@@ -316,6 +339,8 @@ bool touchesWall( SDL_Rect box, Tile* tiles[] )
 
 int close(Tile* tiles[])
 {
+	//shut everything down
+	//doesnt need to be changed because it just destroys all of the things 
 	printf("\nShutting down...\nDetroying textures and renderers...\n");
 	SDL_DestroyTexture(texture);
 	texture = NULL;

@@ -1,3 +1,22 @@
+/*
+* STRADEX engine
+* Devekoped by Strafe_Stopper
+* strafestopper@gmail.com
+* https://github.com/StrafeStopper/Stradex
+*
+*
+*
+*
+*
+*
+*
+*/
+
+
+
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "tchar.h"
@@ -39,13 +58,18 @@ int settings[100];
 int main(int argc, char* args[])
 {
 	printf("Welcome to the <Light> development project!\nCreated and developed by Strafe_Stopper\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
+	//load all the settings
 	loadSettings("settings/settings.txt");
+	//init all of the SDL stuff
 	init();
+	//load textures and sounds to be used
 	loadAssets(tileSet);
 	printf("Running...\n");
+	//show the menu
 	menu();
 
 
+	//shut down all the stuff
 	close(tileSet);
 	printf("SDL successfully shutdown!\n\nPress [enter] to exit...\n");
 	std::cin.get();

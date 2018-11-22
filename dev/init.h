@@ -2,7 +2,7 @@
 #ifndef INIT_H
 #define INIT_H
 
-
+//init all the needed variables
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
 
@@ -34,6 +34,7 @@ extern int TILE_GREEN;
 
 class Tile
 {
+    //class wrapper for the tiling engine
     public:
 		Tile( int x, int y, int tileType );
 
@@ -54,6 +55,9 @@ class Tile
 
 class Timer
 {
+  //class wrapper fror the tick timer
+  //DO NOT mess with this class, it works perfectly and does not need to be changed
+  //timing can be changed in the level loop 
     public:
 		Timer();
 

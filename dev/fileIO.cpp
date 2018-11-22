@@ -16,6 +16,7 @@
 #include <string>
 #include <cmath>
 
+
 bool PERSPECTIVE_STYLE;
 
 using namespace std;
@@ -24,6 +25,11 @@ using namespace std;
 
 int loadSettings(std::string path)
 {
+  //loads the settings
+  //change the for loop limit number to allow for more settings
+  //hard to comment something that is being chnaged and added to so frequently
+  //this doesnt really need to be chnaged because the settings file has all the chnaging you need 
+
   printf("Loading settings...\n");
   fstream map;
   map.open(path.c_str());

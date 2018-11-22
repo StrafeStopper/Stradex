@@ -22,10 +22,12 @@ SDL_Rect* menuCLip = &menuBackRect[0];
 
 bool menu()
 {
+  //show the menu
     bool menuLoop = 0;
 
     SDL_Rect titleRect;
 
+//set the title and buttons
     titleRect.x = 320;
     titleRect.y = 30;
     titleRect.w = 640;
@@ -87,16 +89,18 @@ bool menu()
 
               if(playButton.handleMouseEvent( &e, 0 ))
               {
+                //if the play button is pressed start the level
                 level1();
               }
 
               if(optionsButton.handleMouseEvent( &e, 1 ))
               {
-                //options
+                //options will go hear once i do that :p
               }
 
               if(quitButton.handleMouseEvent( &e, 2 ))
               {
+                //stop everything if the quit button is pushed
                 SDL_HideWindow(window);
                 close(tileSet);
                 printf("SDL successfully shutdown!\n\nPress [enter] to exit...\n");
@@ -109,6 +113,7 @@ bool menu()
           }
         }
 
+        //render all the buttons and stuff 
       menuBackground.render(0, 0, menuCLip, NULL, NULL, SDL_FLIP_NONE);
       title.render(320, 0, textClip, NULL, NULL, SDL_FLIP_NONE);
       playButton.render();

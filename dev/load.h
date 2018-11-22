@@ -18,6 +18,7 @@ extern int TOTAL_BUTTONS;
 
 
 class cTexture {
+	//texture wrapper class
 public:
 	cTexture();
 	~cTexture();
@@ -50,6 +51,7 @@ private:
 
 class player
 {
+	//player wrapper class
 public:
 	static const int PLAYER_WIDTH = 50;
 	static const int PLAYER_HEIGHT = 89;
@@ -96,6 +98,7 @@ private:
 
 class mButton
 {
+	//button wrapper class
 public:
 	mButton();
 	void setPosition(int x, int y);
@@ -114,7 +117,7 @@ extern bool jumping;
 extern bool falling;
 
 
-
+//all of the textres and stuff 
 extern SDL_Texture* loadTexture(std::string path);
 extern TTF_Font *sFont;
 extern SDL_Rect spriteClips[3];

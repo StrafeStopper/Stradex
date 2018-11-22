@@ -1,3 +1,7 @@
+//this is an extra file for putting joke stuff in
+//it wont make it into the final build beacause I don't want to get in trouble with the rating people
+//just some fun stuff for the devs to play with 
+
 /*
 //creates a swastika over the screen
 SDL_Rect top = { 240, 50, 200, 20 };
