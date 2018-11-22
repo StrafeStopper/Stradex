@@ -118,7 +118,7 @@ void level1()
 
 
     player1.collider.x = 51;
-    player1.collider.y = 601;
+    player1.collider.y = 550;
     flipType = SDL_FLIP_NONE;
     jumping = 0;
     player1.velY = 0;
@@ -190,10 +190,6 @@ void level1()
           if(roofTest > 0)
           {
             //printf("clipping roof\n");
-
-            /************************
-            CHECK IF GROUND IS 30 PIXELS BELOW AND TP PLAYER 30 PIXELS DOWN
-            *************************/
             if (roofTest == 10)
             {
               printf("10\n");
@@ -227,14 +223,6 @@ void level1()
       {
         tileSet[ i ]->render( camera );
       }
-
-
-
-
-
-
-		//x = player1.getX();
-		//y = player1.getY();
 
 
 
