@@ -403,7 +403,7 @@ bool mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 				}
 				break;
 	    }
-      }
+    }
 }
 return 0;
 }
