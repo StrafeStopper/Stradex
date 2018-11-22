@@ -2,9 +2,8 @@
 
 This engine has no install client
 
-Follow the instructions below to install dependencies, compile, and run the engine
+Follow the instructions below to install dependencies and run the engine 
 
-The engine can only be developed and compiled in Linux
 
 1. Installing dependencies:
     * Linux:
@@ -13,14 +12,7 @@ The engine can only be developed and compiled in Linux
     * Windows:
       * run `install.sh` to install the needed dependencies
 
-2. Compiling:
-    * Linux:
-      * run `make linux` to compile
-
-    * Windows
-      * run `make windows` to compile
-
-3. Running the engine:
+2. Running the engine:
     * Linux:
       * run `./light`
 
