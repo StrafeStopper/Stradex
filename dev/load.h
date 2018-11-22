@@ -56,7 +56,6 @@ public:
 	static const int PLAYER_WIDTH = 50;
 	static const int PLAYER_HEIGHT = 89;
 
-	//double PLAYER_VEL = 191;
 	double PLAYER_VEL = settings[2];
 
 
@@ -117,7 +116,7 @@ extern bool jumping;
 extern bool falling;
 
 
-//all of the textres and stuff 
+//all of the textres and stuff
 extern SDL_Texture* loadTexture(std::string path);
 extern TTF_Font *sFont;
 extern SDL_Rect spriteClips[3];

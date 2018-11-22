@@ -420,9 +420,6 @@ player::player()
 	collider.w = PLAYER_WIDTH;
 	collider.h = PLAYER_HEIGHT;
 
-	if (!PERSPECTIVE_STYLE)
-	PLAYER_VEL *= 50;
-
 	clip.x = 0;
 	clip.y = 0;
 	clip.w = 50;
@@ -597,7 +594,7 @@ void player::render(SDL_Rect& camera)
 
 void player::setCamera(SDL_Rect& camera)
 {
-	//set the camera after the player moves 
+	//set the camera after the player moves
 	camera.x = ( collider.x + PLAYER_WIDTH / 2 ) - SCREEN_WIDTH / 2;
 	camera.y = ( collider.y + PLAYER_HEIGHT / 2 ) - SCREEN_HEIGHT / 2;
 
