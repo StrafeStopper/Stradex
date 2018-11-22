@@ -500,14 +500,14 @@ bool player::move( Tile *tiles[], float timeStep )
 {
 //move the player and check if it touches a wall or level bounds
 	if (!PERSPECTIVE_STYLE)
-		collider.x += velX * timeStep;
+		collider.x += velX;
 	else if(PERSPECTIVE_STYLE)
 		collider.x += velX;
 
 	if (!PERSPECTIVE_STYLE)
 	{
 		if( ( collider.x < 0 ) || ( collider.x + PLAYER_WIDTH > LEVEL_WIDTH ) || touchesWall( collider, tiles ))
-	   	collider.x -= velX * timeStep;
+	   	collider.x -= velX;
 	}
 
 	if (PERSPECTIVE_STYLE)
@@ -517,7 +517,7 @@ bool player::move( Tile *tiles[], float timeStep )
 	}
 
 	if (!PERSPECTIVE_STYLE)
-		collider.y += velY * timeStep;
+		collider.y += velY;
 	else if (PERSPECTIVE_STYLE)
 		collider.y += velY;
 
@@ -532,7 +532,7 @@ bool player::move( Tile *tiles[], float timeStep )
 	if (!PERSPECTIVE_STYLE)
 	{
 		if ( ( collider.y < 0 ) || ( collider.y + PLAYER_HEIGHT > LEVEL_HEIGHT ) || touchesWall( collider, tiles ) )
-		collider.y -= velY * timeStep;
+		collider.y -= velY;
 	}
 
 	return 1;
