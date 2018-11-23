@@ -13,7 +13,7 @@ Collision types:
       * Objects and triggers will be linked
 
 Tile ID | Tile name  | Collision type
-
+--------|------------|----------------
 ID 00   | TILE_BLACK | 1
 ID 01   | TILE_GREY  | 0
 ID 02   | TILE_BLUE  | 2
