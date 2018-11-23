@@ -245,12 +245,12 @@ bool touchesWall( SDL_Rect box, Tile* tiles[] )
             if( checkCollision( box, tiles[ i ]->getBox() ) )
             {
 								bottomTile = i;
-                return true;
+                return 1;
             }
         }
     }
 
-    return false;
+    return 0;
 }
 
     Tile* tileSet[ TOTAL_TILES ];
@@ -340,7 +340,7 @@ bool touchesWall( SDL_Rect box, Tile* tiles[] )
 int close(Tile* tiles[])
 {
 	//shut everything down
-	//doesnt need to be changed because it just destroys all of the things 
+	//doesnt need to be changed because it just destroys all of the things
 	printf("\nShutting down...\nDetroying textures and renderers...\n");
 	SDL_DestroyTexture(texture);
 	texture = NULL;

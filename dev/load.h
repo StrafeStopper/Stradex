@@ -58,8 +58,6 @@ public:
 
 	double PLAYER_VEL = settings[2];
 
-
-
 	player();
 
 	void handleEvent( SDL_Event& e );
@@ -67,6 +65,8 @@ public:
 	bool move( Tile *tiles[], float timeStep );
 	bool onGround();
 	int roofClip();
+
+	bool activationTile( SDL_Rect box, Tile* tiles[] );
 
 	double getX();
 	double getY();

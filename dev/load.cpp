@@ -465,6 +465,12 @@ void player::handleEvent( SDL_Event& e )
 			velX += PLAYER_VEL;
 			flipType = SDL_FLIP_NONE;
 			break;
+		case SDLK_e:
+			if(activationTile(collider, tileSet))
+			{
+				//if the player presses 'e' while in a tile with collision type '2' do a thing 
+			}
+			break;
 
 		case SDLK_q:
 			menu();
@@ -577,6 +583,26 @@ int player::roofClip()
 		return 00;
 	}
 }
+
+
+bool player::activationTile( SDL_Rect box, Tile* tiles[] )
+{
+		//detects if a player is in an activation tile and can perform the action
+		for( int i = 0; i < TOTAL_TILES; ++i )
+    {
+        if( ( tiles[ i ]->getType() == TILE_BLUE )/* && ( tiles[ i ]->getType() <= TILE_BLACK ) */)
+        {
+            if( checkCollision( box, tiles[ i ]->getBox() ) )
+            {
+								bottomTile = i;
+                return 1;
+            }
+        }
+    }
+
+    return 0;
+}
+
 
 void player::clipStop()
 {
