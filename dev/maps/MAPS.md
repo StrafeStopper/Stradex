@@ -14,8 +14,8 @@ Collision types:
 
 Tile ID | Tile name  | Collision type
 --------|------------|----------------
-ID 00   | TILE_BLACK | 1
-ID 01   | TILE_GREY  | 0
-ID 02   | TILE_BLUE  | 2
-ID 03   | TILE_RED   | 0
-ID 04   | TILE_GREEN | 0
+ 00    | TILE_BLACK | 1
+ 01    | TILE_GREY  | 0
+ 02    | TILE_BLUE  | 2
+ 03    | TILE_RED   | 0
+ 04    | TILE_GREEN | 0
