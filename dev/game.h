@@ -16,6 +16,7 @@ extern bool quit;
 extern SDL_Event e;
 
 extern void level1();
+extern void activate();
 
 
 extern const Uint8* keyState;

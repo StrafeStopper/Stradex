@@ -154,6 +154,81 @@ SDL_Rect Tile::getBox()
     return tileBox;
 }
 
+
+int TOTAL_ACTI = 4;
+
+int ACTI_0 = 0;
+int ACTI_1 = 1;
+int ACTI_2 = 2;
+int ACTI_3 = 3;
+
+Act::Act(int x, int y, int actiNumber)
+{
+	actiBox.x = x;
+	actiBox.y = y;
+	actiBox.w = TILE_WIDTH;
+	actiBox.h = TILE_HEIGHT;
+
+	pActiType = actiNumber;
+}
+
+SDL_Rect Act::getBox()
+{
+	return actiBox;
+}
+
+int Act::getType()
+{
+	return pActiType;
+}
+
+void setActivation( Act* acti[] )
+{
+	//load activation map and set the locations
+		printf("Setting activation tiles...\n");
+		int x = 0, y = 0;
+
+		std::ifstream map( "maps/level1_acti.map" );
+
+
+		for( int i = 0; i < TOTAL_TILES; ++i )
+		{
+
+			int actiNumber = -1;
+
+			map >> actiNumber;
+
+			if( map.fail() )
+			{
+				printf( "Error loading map: Unexpected end of file\n" );
+				break;
+			}
+
+			if( ( actiNumber >= 0 ) && ( actiNumber < TOTAL_ACTI ) )
+			{
+				acti[ i ] = new Act( x, y, actiNumber );
+			}
+			else
+			{
+				printf( "Error loading map: Invalid acti type at %d\n", i );
+				break;
+			}
+
+			x += TILE_WIDTH;
+
+			if( x >= LEVEL_WIDTH )
+			{
+				x = 0;
+
+				y += TILE_HEIGHT;
+			}
+	}
+
+		map.close();
+
+
+}
+
 void setTiles( Tile* tiles[] )
 {
 	//load map file and set the tiles
@@ -162,13 +237,7 @@ void setTiles( Tile* tiles[] )
 
     std::ifstream map( "maps/level1.map" );
 
-    /*if( map == NULL )
-    {
-		printf( "Unable to load map file!\n" );
-    }
-	else
-	{
-*/
+
 		for( int i = 0; i < TOTAL_TILES; ++i )
 		{
 
@@ -200,7 +269,6 @@ void setTiles( Tile* tiles[] )
 
 				y += TILE_HEIGHT;
 			}
-		//}
 
 		//load tiles from texture
 			spriteClips[ TILE_BLACK ].x = 0;

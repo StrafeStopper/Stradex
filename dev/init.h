@@ -32,6 +32,15 @@ extern int TILE_RED;
 extern int TILE_GREEN;
 
 
+
+extern int TOTAL_ACTI;
+
+extern int ACTI_0;
+extern int ACTI_1;
+extern int ACTI_2;
+extern int ACTI_3;
+
+
 class Tile
 {
     //class wrapper for the tiling engine
@@ -51,13 +60,28 @@ class Tile
 		int PtileType;
 };
 
+class Act
+{
+  //wrapper class for activation tiles to work properly
+  public:
+    Act( int x, int y, int actiNumber);
 
+    int getType();
+
+    SDL_Rect getBox();
+    SDL_Rect actiBox;
+
+  private:
+
+    int pActiType;
+
+};
 
 class Timer
 {
   //class wrapper fror the tick timer
   //DO NOT mess with this class, it works perfectly and does not need to be changed
-  //timing can be changed in the level loop 
+  //timing can be changed in the level loop
     public:
 		Timer();
 
@@ -86,8 +110,10 @@ class Timer
 
 
 void setTiles( Tile* tiles[] );
+void setActivation( Act* acti[] );
 bool touchesWall( SDL_Rect box, Tile* tiles[] );
 extern Tile* tileSet[ TOTAL_TILES ];
+extern Act* actiMap[ TOTAL_TILES ];
 extern int bottomTile;
 extern int leftTile;
 extern int rightTile;

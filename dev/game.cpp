@@ -89,7 +89,24 @@ bool checkCollision(SDL_Rect a, SDL_Rect b)
  return 1;
 }
 
+void activate()
+{
+  int actiType = player1.activationTile(player1.collider, actiMap);
 
+  if (actiType == ACTI_1)
+  {
+    //open door 1
+  } else if (actiType == ACTI_2)
+  {
+    //open door 2
+  } else if (actiType == ACTI_3)
+  {
+    //open door 3
+  } else
+  {
+    printf("Oh shit something really bad happened \n");
+  }
+}
 
 
 void level1()
@@ -162,7 +179,7 @@ void level1()
 
           //set physics ticks for frame independent movement
           //change the number for different physics speed
-          //it works fine like this so try not to change it 
+          //it works fine like this so try not to change it
           float timeStep = stepTimer.getTicks() / 1000.f;
 
           //move the player and check for collision

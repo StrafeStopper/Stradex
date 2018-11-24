@@ -66,7 +66,7 @@ public:
 	bool onGround();
 	int roofClip();
 
-	bool activationTile( SDL_Rect box, Tile* tiles[] );
+	int activationTile( SDL_Rect box, Act* acti[] );
 
 	double getX();
 	double getY();

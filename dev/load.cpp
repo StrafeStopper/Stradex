@@ -466,10 +466,8 @@ void player::handleEvent( SDL_Event& e )
 			flipType = SDL_FLIP_NONE;
 			break;
 		case SDLK_e:
-			if(activationTile(collider, tileSet))
-			{
-				//if the player presses 'e' while in a tile with collision type '2' do a thing 
-			}
+			//if the player presses 'e' while in a tile with collision type '2' do a thing
+			activate();
 			break;
 
 		case SDLK_q:
@@ -585,19 +583,30 @@ int player::roofClip()
 }
 
 
-bool player::activationTile( SDL_Rect box, Tile* tiles[] )
+int player::activationTile( SDL_Rect box, Act* acti[] )
 {
 		//detects if a player is in an activation tile and can perform the action
-		for( int i = 0; i < TOTAL_TILES; ++i )
+		for( int i = 0; i < TOTAL_ACTI; ++i )
     {
-        if( ( tiles[ i ]->getType() == TILE_BLUE )/* && ( tiles[ i ]->getType() <= TILE_BLACK ) */)
+        if( ( acti[ i ]->getType() == ACTI_1 ))
         {
-            if( checkCollision( box, tiles[ i ]->getBox() ) )
+            if( checkCollision( box, acti[ i ]->getBox() ) )
             {
-								bottomTile = i;
                 return 1;
             }
-        }
+        } else if ((acti[ i ]->getType() == ACTI_2))
+				{
+					if( checkCollision( box, acti[ i ]->getBox() ) )
+					{
+							return 2;
+					}
+				} else if ((acti[ i ]->getType() == ACTI_3))
+				{
+					if( checkCollision( box, acti[ i ]->getBox() ) )
+					{
+							return 3;
+					}
+				}
     }
 
     return 0;
