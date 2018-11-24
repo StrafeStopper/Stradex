@@ -28,5 +28,6 @@ The engine can only be developed and compiled in Linux
       * run `wine light.exe` in linux
       * double click on `light.exe` in windows
 
+The Linux executable runs in Linux only, using an emulator on Windows has not been tested.
 
-It runs with wine in Linux but doesn't run in Windows quite yet. A fix for this is planned but not currently being worked on.
+The Windows executable runs with Wine in Linux but doesn't run in Windows quite yet. A fix for this is planned but not currently being worked on.
