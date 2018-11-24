@@ -28,7 +28,7 @@ Tiles with a collision type will behave as described in the above table
 
 The current map size is 67 * 24. Meaning that the first row will have 67 tiles and 24 rows for a complete map. A complete map will have 1608 tiles in total. Even a single missing tile or incorrect tile type will cause an error to occur. Make the calculations properly in order to design a working map. The engine does not need to be compiled after a map edit has been made.
 
-Below is an example of a map that is 5 * 5. 25 tiles in total:
+Below is an example of a map that is 5 * 5. The map is 25 tiles in total:
 
 Example map | 5 * 5 | _ | _ | _ | _ | _ |
 ------------|-------|---|---|---|---|---|
@@ -37,3 +37,5 @@ Example map | 5 * 5 | _ | _ | _ | _ | _ |
  _ | _ | 00 | 01 | 01 | 01 | 00
  _ | _ | 00 | 01 | 01 | 01 | 00
  _ | _ | 00 | 00 | 00 | 00 | 00
+
+Take a look at some already existing maps if more example is needed. The map names *MUST* match names in the engine until custom names are supported. The current map name is "level1.map". If changes are made to it, please rename the map and leave it in its original condition as it is needed and actively used for testing. 
