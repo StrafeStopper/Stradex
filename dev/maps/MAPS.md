@@ -31,7 +31,7 @@ The current map size is 67 * 24. Meaning that the first row will have 67 tiles a
 Below is an example of a map that is 5 * 5. 25 tiles in total:
 
 Example map | 5 * 5 | _ | _ | _ |
-------------|-------|  |  |  |
+------------|-------|---|---|---|
 00 | 00 | 00 | 00 | 00
 00 | 01 | 01 | 01 | 00
 00 | 01 | 01 | 01 | 00
