@@ -5,7 +5,7 @@ Collision Type | Notes
 00             | This tile will not do anything if stepped in
 01             | This tile will stop the player if it attempts to walk into it
 02             | This tile with allow the player to trigger an event while standing in it.
--              | Objects and triggers will be linked
+ -             | Objects and triggers will be linked
 
 
 
