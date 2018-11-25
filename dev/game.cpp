@@ -91,17 +91,21 @@ bool checkCollision(SDL_Rect a, SDL_Rect b)
 
 void activate()
 {
+  //triggered when 'e' is pressed while the player is standing in an activatable tile
   int actiType = player1.activationTile(player1.collider, actiMap);
 
   if (actiType == ACTI_1)
   {
-    //open door 1
+    //opens trigger ACTI_1
+    printf("ACTI_1\n");
   } else if (actiType == ACTI_2)
   {
-    //open door 2
+    //opens trigger ACTI_2
+    printf("ACTI_2\n" );
   } else if (actiType == ACTI_3)
   {
-    //open door 3
+    //opens trigger ACTI_3
+    printf("ACTI_3\n" );
   } else
   {
     printf("Oh shit something really bad happened \n");

@@ -182,6 +182,8 @@ int Act::getType()
 	return pActiType;
 }
 
+Act* actiMap[ TOTAL_TILES ];
+
 void setActivation( Act* acti[] )
 {
 	//load activation map and set the locations
@@ -204,7 +206,7 @@ void setActivation( Act* acti[] )
 				break;
 			}
 
-			if( ( actiNumber >= 0 ) && ( actiNumber < TOTAL_ACTI ) )
+			if( ( actiNumber >= 00 ) && ( actiNumber < TOTAL_ACTI ) )
 			{
 				acti[ i ] = new Act( x, y, actiNumber );
 			}

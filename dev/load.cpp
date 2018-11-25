@@ -263,8 +263,11 @@ void loadAssets(Tile* tiles[])
 	menuBackRect[0].w = 1280;
 	menuBackRect[0].h = 720;
 
-
+	//set the tile map
 	setTiles( tiles );
+
+	//set the acti map
+	setActivation(actiMap);
 
 
 
@@ -588,19 +591,20 @@ int player::activationTile( SDL_Rect box, Act* acti[] )
 		//detects if a player is in an activation tile and can perform the action
 		for( int i = 0; i < TOTAL_ACTI; ++i )
     {
-        if( ( acti[ i ]->getType() == ACTI_1 ))
+        if( ( acti[ i ]->getType() == 01 ))
         {
+					printf("1\n");
             if( checkCollision( box, acti[ i ]->getBox() ) )
             {
                 return 1;
             }
-        } else if ((acti[ i ]->getType() == ACTI_2))
+        } else if ((acti[ i ]->getType() == 02))
 				{
 					if( checkCollision( box, acti[ i ]->getBox() ) )
 					{
 							return 2;
 					}
-				} else if ((acti[ i ]->getType() == ACTI_3))
+				} else if ((acti[ i ]->getType() == 03))
 				{
 					if( checkCollision( box, acti[ i ]->getBox() ) )
 					{
