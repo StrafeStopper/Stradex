@@ -589,11 +589,10 @@ int player::roofClip()
 int player::activationTile( SDL_Rect box, Act* acti[] )
 {
 		//detects if a player is in an activation tile and can perform the action
-		for( int i = 0; i < TOTAL_ACTI; ++i )
+		for( int i = 0; i < TOTAL_TILES; ++i )
     {
         if( ( acti[ i ]->getType() == 01 ))
         {
-					printf("1\n");
             if( checkCollision( box, acti[ i ]->getBox() ) )
             {
                 return 1;

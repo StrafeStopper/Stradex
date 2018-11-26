@@ -108,7 +108,7 @@ void activate()
     printf("ACTI_3\n" );
   } else
   {
-    printf("Oh shit something really bad happened \n");
+    //printf("Oh shit something really bad happened \n");
   }
 }
 
