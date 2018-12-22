@@ -1,5 +1,5 @@
 #OBJS: Files to be compiled
-OBJS = main.cpp init.cpp load.cpp game.cpp fileIO.cpp menu.cpp
+OBJS = main.cpp init.cpp load.cpp game.cpp fileIO.cpp menu.cpp text.cpp
 
 #OBJ_NAME: Name of the executeable
 LINUX_OBJ = light
