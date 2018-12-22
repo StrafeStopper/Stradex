@@ -13,6 +13,7 @@
 #include "game.h"
 #include "fileIO.h"
 #include "menu.h"
+#include "text.h"
 #include <string>
 #include <cmath>
 
