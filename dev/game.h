@@ -15,6 +15,8 @@ extern bool quit;
 
 extern SDL_Event e;
 
+extern SDL_Rect camera;
+
 extern void level1();
 extern void activate();
 

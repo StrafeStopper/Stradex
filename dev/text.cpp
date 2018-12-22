@@ -18,4 +18,23 @@
 #include <cmath>
 
 
-//file for handling the text stream in the engine 
+//file for handling the text stream in the engine
+
+
+
+//this function loads the text to be rendered to the stream
+void textStream(std::string tts) /*tts stands for test to stream */
+{
+  streamedText.loadFromRenderedText(tts, textColor);
+}
+
+
+void renderTextStream()
+{
+  SDL_Rect textView;
+  textView.x = camera.x + 40;
+  textView.y = camera.y + 660;
+  textView.w = 100;
+  textView.h = 40;
+  SDL_RenderSetViewport(renderer, &textView);
+}
