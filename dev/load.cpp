@@ -272,7 +272,7 @@ void loadAssets(Tile* tiles[])
 
 
 
-	sFont = TTF_OpenFont("assets/Ubuntu-L.ttf", 150);
+	sFont = TTF_OpenFont("assets/Ubuntu-R.ttf", 150);
 	title.loadFromRenderedText("STRADEX", textColor);
 
 

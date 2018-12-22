@@ -25,9 +25,16 @@
 //this function loads the text to be rendered to the stream
 void textStream(std::string tts) /*tts stands for test to stream */
 {
+  tsFont = TTF_OpenFont("assets/Ubuntu-R.ttf", 11);
   streamedText.loadFromRenderedText(tts, textColor);
 }
 
+
+
+tsClip[0].x = 0;
+tsClip[0].y = 0;
+tsClip[0].w = 100;
+tsClip[0].h = 40;
 
 void renderTextStream()
 {
@@ -37,4 +44,5 @@ void renderTextStream()
   textView.w = 100;
   textView.h = 40;
   SDL_RenderSetViewport(renderer, &textView);
+  streamedText.render(10, 25, )
 }

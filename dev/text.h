@@ -5,4 +5,6 @@
 extern cTexture streamedText;
 extern void textStream(std::string tts);
 extern void renderTextStream();
+extern TTF_Font *tsFont;
+extern SDL_Rect tsClip[1];
 #endif //TEXT_H
