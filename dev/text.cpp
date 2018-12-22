@@ -44,5 +44,5 @@ void renderTextStream()
   textView.w = 100;
   textView.h = 40;
   SDL_RenderSetViewport(renderer, &textView);
-  streamedText.render(10, 25, )
+  streamedText.render(10, 25, tsClip, NULL, NULL, SDL_FLIP_NONE);
 }
