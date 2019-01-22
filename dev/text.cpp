@@ -20,7 +20,8 @@
 
 //file for handling the text stream in the engine
 
-
+//box to render text in on the screen
+SDL_Rect tsClip[1];
 
 //this function loads the text to be rendered to the stream
 void textStream(std::string tts) /*tts stands for test to stream */
