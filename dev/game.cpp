@@ -268,8 +268,16 @@ void level1()
       }
 
 
+
+
     //render the player inside the camera view
 		player1.render(camera);
+
+
+    //print text to the screen
+    textStream("nigger faggot hahahahha");
+    renderTextStream(camera);
+
 
     //show the completed render
 		SDL_RenderPresent(renderer);
