@@ -156,7 +156,7 @@ void level1()
         //dungeon_floor.render(0,0, backround, NULL, NULL, SDL_FLIP_NONE);
 
 
-        //check for events like quitting, button pushesx etc
+        //check for events like quitting, button pushes etc
         while( SDL_PollEvent( &e ) != 0 )
         {
             if( e.type == SDL_QUIT )
@@ -215,6 +215,7 @@ void level1()
             if (touchesWall(player1.collider, tileSet))
             {
               //while falling, if the player touches the ground, stop faling and teleport exactly on top of the ground
+              //the telportation is simply a failsafe if the player fell into the ground, so it sets them back on top
               jumping = 0;
               falling = 0;
               player1.velY = 0;
@@ -255,6 +256,7 @@ void level1()
 }
 
           //start the tick timer
+          //dont mess with this
           stepTimer.start();
 
           //move the camera acording to player movement
@@ -263,7 +265,7 @@ void level1()
 
     for( int i = 0; i < TOTAL_TILES; ++i )
       {
-        //render the level
+        //render all of the level's tiles
         tileSet[ i ]->render( camera );
       }
 
@@ -275,9 +277,9 @@ void level1()
 
 
     //print text to the screen
-    textStream("nigger faggot hahahahha");
+    textStream("text stream test");
     renderTextStream(camera);
-
+    SDL_RenderSetViewport(renderer, &screenSpace);
 
     //show the completed render
 		SDL_RenderPresent(renderer);

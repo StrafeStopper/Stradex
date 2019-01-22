@@ -23,8 +23,7 @@
 //box to render text in on the screen
 SDL_Rect tsClip[1];
 
-//font object
-TTF_Font *tsFont = NULL;
+
 
 //text texture
 cTexture streamedText;
@@ -32,7 +31,8 @@ cTexture streamedText;
 //this function loads the text to be rendered to the stream
 void textStream(std::string tts) /*tts stands for test to stream */
 {
-  tsFont = TTF_OpenFont("assets/Ubuntu-R.ttf", 11);
+  sFont = TTF_OpenFont("assets/Ubuntu-R.ttf", 14);
+  textColor = { 0, 0, 0 };
   streamedText.loadFromRenderedText(tts, textColor);
 }
 
@@ -44,13 +44,14 @@ void renderTextStream(SDL_Rect camera)
 {
   tsClip[0].x = 0;
   tsClip[0].y = 0;
-  tsClip[0].w = 100;
+  tsClip[0].w = 300;
   tsClip[0].h = 40;
   SDL_Rect textView;
-  textView.x = camera.x + 200;
-  textView.y = camera.y + 200;
-  textView.w = 100;
+  textView.x = 200;
+  textView.y = 200;
+  textView.w = 300;
   textView.h = 40;
-  streamedText.render(10, 25, tsClip, NULL, NULL, SDL_FLIP_NONE);
+  SDL_RenderSetViewport(renderer, &textView);
+  streamedText.render(0, 0, NULL, NULL, NULL, SDL_FLIP_NONE);
 
 }
