@@ -27,9 +27,9 @@ SDL_Rect tsClip[1];
 int messageCount = 0;
 std::string currentMessages[6];
 
-
 //text texture
 cTexture streamedText[6];
+
 
 //this function loads the text to be rendered to the stream
 void textStream(std::string tts) /*tts stands for text to stream */
