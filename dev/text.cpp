@@ -23,17 +23,27 @@
 //box to render text in on the screen
 SDL_Rect tsClip[1];
 
+//handler vars for multiple messages
+int messageCount = 0;
+std::string currentMessages[6];
 
 
 //text texture
-cTexture streamedText;
+cTexture streamedText[6];
 
 //this function loads the text to be rendered to the stream
-void textStream(std::string tts) /*tts stands for test to stream */
+void textStream(std::string tts) /*tts stands for text to stream */
 {
+  if (currentMessages[messageCount] != tts || currentMessages[messageCount] == "")
+  {
+    messageCount++;
+    currentMessages[messageCount] = tts;
+  }
+
   sFont = TTF_OpenFont("assets/Ubuntu-R.ttf", 14);
   textColor = { 0, 0, 0 };
-  streamedText.loadFromRenderedText(tts, textColor);
+  streamedText[messageCount].loadFromRenderedText(tts, textColor);
+
 }
 
 
@@ -48,10 +58,10 @@ void renderTextStream(SDL_Rect camera)
   tsClip[0].h = 40;
   SDL_Rect textView;
   textView.x = 100;
-  textView.y = 600;
+  textView.y = 650;
   textView.w = 300;
   textView.h = 40;
   SDL_RenderSetViewport(renderer, &textView);
-  streamedText.render(0, 0, NULL, NULL, NULL, SDL_FLIP_NONE);
+  streamedText[messageCount].render(0, ((messageCount * 14) + 2), NULL, NULL, NULL, SDL_FLIP_NONE);
 
 }

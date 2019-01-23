@@ -277,9 +277,10 @@ void level1()
 
 
     //print text to the screen
-    textStream("text stream test");
+    /*textStream("text stream test");
+    textStream("test 2");
     renderTextStream(camera);
-    SDL_RenderSetViewport(renderer, &screenSpace);
+    SDL_RenderSetViewport(renderer, &screenSpace);*/
 
     //show the completed render
 		SDL_RenderPresent(renderer);

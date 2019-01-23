@@ -2,7 +2,7 @@
 #define TEXT_H
 
 
-extern cTexture streamedText;
+extern cTexture streamedText[6];
 extern void textStream(std::string tts);
 extern void renderTextStream(SDL_Rect camera);
 extern SDL_Rect tsClip[1];
