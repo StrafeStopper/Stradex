@@ -47,8 +47,8 @@ void renderTextStream(SDL_Rect camera)
   tsClip[0].w = 300;
   tsClip[0].h = 40;
   SDL_Rect textView;
-  textView.x = 200;
-  textView.y = 200;
+  textView.x = 100;
+  textView.y = 600;
   textView.w = 300;
   textView.h = 40;
   SDL_RenderSetViewport(renderer, &textView);
