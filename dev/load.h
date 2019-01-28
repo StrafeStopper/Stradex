@@ -136,6 +136,7 @@ extern mButton playButton;
 extern mButton optionsButton;
 extern mButton quitButton;
 extern cTexture basicSprite;
+extern std::string textBuffer[5];
 
 
 

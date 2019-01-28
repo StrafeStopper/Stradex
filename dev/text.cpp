@@ -34,10 +34,13 @@ cTexture streamedText[6];
 //this function loads the text to be rendered to the stream
 void textStream(std::string tts) /*tts stands for text to stream */
 {
-  if (currentMessages[messageCount] != tts || currentMessages[messageCount] == "")
+  for (int i = 0; i < 6; i++)
   {
-    messageCount++;
-    currentMessages[messageCount] = tts;
+    if (tts == textBuffer[i])
+    {
+      //do noting
+    } else
+    textBuffer[] = tts;
   }
 
   sFont = TTF_OpenFont("assets/Ubuntu-R.ttf", 14);
@@ -62,6 +65,6 @@ void renderTextStream(SDL_Rect camera)
   textView.w = 300;
   textView.h = 40;
   SDL_RenderSetViewport(renderer, &textView);
-  streamedText[messageCount].render(0, ((messageCount * 14) + 2), NULL, NULL, NULL, SDL_FLIP_NONE);
+  streamedText[messageCount].render(0, 0, NULL, NULL, NULL, SDL_FLIP_NONE);
 
 }

@@ -26,6 +26,7 @@ SDL_Rect buttonBox[1];
 SDL_Rect text_[1];
 SDL_Rect menuBackRect[1];
 SDL_Color textColor = { 255, 0, 0 };
+std::string textBuffer[5];
 
 int BUTTON_WIDTH = 300;
 int BUTTON_HEIGHT = 100;
