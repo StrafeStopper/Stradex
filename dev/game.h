@@ -25,7 +25,7 @@ extern const Uint8* keyState;
 
 extern double angle;
 
-
+extern SDL_Rect screenSpace;
 
 
 

@@ -13,6 +13,7 @@
 #include "game.h"
 #include "fileIO.h"
 #include "menu.h"
+#include "text.h"
 #include <string>
 #include <cmath>
 
@@ -119,6 +120,7 @@ bool menu()
       playButton.render();
       optionsButton.render();
       quitButton.render();
+      //renderBuildNumber(build_number);
       SDL_RenderPresent(renderer);
     }
       return 0;

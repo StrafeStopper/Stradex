@@ -29,6 +29,7 @@ std::string currentMessages[6];
 
 //text texture
 cTexture streamedText[6];
+cTexture buildText;
 
 
 //this function loads the text to be rendered to the stream
@@ -67,4 +68,20 @@ void renderTextStream(SDL_Rect camera)
   SDL_RenderSetViewport(renderer, &textView);
   streamedText[messageCount].render(0, 0, NULL, NULL, NULL, SDL_FLIP_NONE);
 
+}
+
+void renderBuildNumber(int b)
+{
+  std::string bs = std::to_string(b);
+  SDL_Rect textView;
+  textView.x = SCREEN_WIDTH - 130;
+  textView.y = 30;
+  textView.w = 129;
+  textView.h = 15;
+  sFont = TTF_OpenFont("assets/Ubuntu-R.ttf", 14);
+  textColor = { 255, 255, 255 };
+  buildText.loadFromRenderedText("Build number:  " + bs, textColor);
+  SDL_RenderSetViewport(renderer, &textView);
+  buildText.render(0, 0, NULL, NULL, NULL, SDL_FLIP_NONE);
+  SDL_RenderSetViewport(renderer, &screenSpace);
 }

@@ -281,6 +281,8 @@ void level1()
     textStream("test 2");
     renderTextStream(camera);
     SDL_RenderSetViewport(renderer, &screenSpace);
+    renderBuildNumber(build_number);
+    SDL_RenderSetViewport(renderer, &screenSpace);
 
     //show the completed render
 		SDL_RenderPresent(renderer);
