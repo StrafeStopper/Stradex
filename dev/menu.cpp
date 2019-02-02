@@ -113,7 +113,7 @@ bool menu()
           }
         }
 
-        //render all the buttons and stuff 
+        //render all the buttons and stuff
       menuBackground.render(0, 0, menuCLip, NULL, NULL, SDL_FLIP_NONE);
       title.render(320, 0, textClip, NULL, NULL, SDL_FLIP_NONE);
       playButton.render();
