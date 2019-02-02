@@ -20,9 +20,12 @@ all:
 #Compile for linux
 linux : $(OBJS)
 	g++ $(OBJS) $(COMPILER_FLAGS) $(LINUX_FLAGS) -o $(LINUX_OBJ)
-	
+	@echo "Updating the build number"
+	settings/build_number.sh
 
 
 #Compile for windows
 windows : $(OBJS)
 	i686-w64-mingw32-g++ $(OBJS) $(COMPILER_FLAGS) $(WINDOWS_FLAGS) -o $(WINDOWS_OBJ)
+	@echo "Updating the build number"
+	settings/build_number.sh

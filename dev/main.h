@@ -12,4 +12,6 @@ extern Uint8 r;
 extern Uint8 g;
 extern Uint8 b;
 
+extern  int build_number;
+
 #endif //MAIN_H

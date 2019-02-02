@@ -62,7 +62,7 @@ int main(int argc, char* args[])
 	//load all the settings
 	loadSettings("settings/settings.txt");
 	//loads the build number
-	loadBuildNumber("settings/build_number.txt");
+	build_number = loadBuildNumber("settings/build_number.txt");
 	//init all of the SDL stuff
 	init();
 	//load textures and sounds to be used
