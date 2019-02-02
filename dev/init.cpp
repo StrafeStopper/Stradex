@@ -415,11 +415,11 @@ int close(Tile* tiles[])
 	printf("\nShutting down...\nDetroying textures and renderers...\n");
 	SDL_DestroyTexture(texture);
 	texture = NULL;
-	dungeon_floor.free();
 	playerMain.free();
 	title.free();
 	menuBackground.free();
 	buttonsSprite.free();
+
 	for( int i = 0; i < TOTAL_TILES; ++i )
 	{
 		 if( tiles[ i ] == NULL )
@@ -428,11 +428,11 @@ int close(Tile* tiles[])
 			tiles[ i ] = NULL;
 		 }
 	}
+
 	SDL_DestroyRenderer(renderer);
 	renderer = NULL;
 	printf("SDL surfaces, textures, and renderers freed from memory!\nDestroying SDL window...\n");
 	SDL_DestroyWindow(window);
-
 	printf("SDL window detroyed!\n");
 	printf("Shutting down TTF...\n");
 	title.free();
