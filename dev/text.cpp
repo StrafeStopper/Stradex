@@ -40,7 +40,7 @@ void textStream(std::string tts) /*tts stands for text to stream */
     {
       //do noting
     } else
-    textBuffer[] = tts;
+    textBuffer[i] = tts;
   }
 
   sFont = TTF_OpenFont("assets/Ubuntu-R.ttf", 14);

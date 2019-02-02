@@ -61,6 +61,8 @@ int main(int argc, char* args[])
 	printf("Welcome to the <Light> development project!\nCreated and developed by Strafe_Stopper\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
 	//load all the settings
 	loadSettings("settings/settings.txt");
+	//loads the build number
+	loadBuildNumber("settings/build_number.txt");
 	//init all of the SDL stuff
 	init();
 	//load textures and sounds to be used

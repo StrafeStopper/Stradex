@@ -43,3 +43,23 @@ int loadSettings(std::string path)
   PERSPECTIVE_STYLE = settings[3];
   printf("Done!\n");
 }
+
+int loadBuildNumber(std::string path)
+{
+  int build;
+  printf("Loading raw text file...\n");
+  fstream file;
+  file.open(path.c_str(), ios::in);
+  file >> build;
+  cout << build << endl;
+  file.close();
+  file.open(path.c_str(), ios::out | ios::trunc);
+  build++;
+  file << build;
+  cout << build << endl;
+  printf("Done\n");
+  file.close();
+  return build;
+
+
+}

@@ -20,6 +20,8 @@ all:
 #Compile for linux
 linux : $(OBJS)
 	g++ $(OBJS) $(COMPILER_FLAGS) $(LINUX_FLAGS) -o $(LINUX_OBJ)
+	
+
 
 #Compile for windows
 windows : $(OBJS)
