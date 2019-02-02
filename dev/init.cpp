@@ -429,7 +429,7 @@ int close(Tile* tiles[])
 		 }
 	}
 
-	SDL_DestroyRenderer(renderer);
+	//SDL_DestroyRenderer(renderer);
 	renderer = NULL;
 	printf("SDL surfaces, textures, and renderers freed from memory!\nDestroying SDL window...\n");
 	SDL_DestroyWindow(window);
