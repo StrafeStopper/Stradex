@@ -54,6 +54,8 @@ bool cmdLoop = 1;
 
 int settings[100];
 
+int build_number = 0;
+
 
 
 int main(int argc, char* args[])
