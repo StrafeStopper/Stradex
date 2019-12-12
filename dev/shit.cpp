@@ -1,5 +1,5 @@
 //this is an extra file for putting joke stuff in
-//it wont make it into the final build beacause I don't want to get in trouble with the rating people
+//it wont make it into the final build beacause I don't want to get in trouble with the snowflakes
 //just some fun stuff for the devs to play with 
 
 /*

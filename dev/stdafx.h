@@ -12,8 +12,8 @@
 #include "main.h"
 #include "init.h"
 #include "load.h"
-//#include <conio.h>
-//#include <Windows.h>
+#include <conio.h>
+#include <Windows.h>
 #include <string>
 #include <SDL2/SDL_ttf.h>
 #include <cmath>

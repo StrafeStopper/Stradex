@@ -1,6 +1,6 @@
 /*
 * STRADEX engine
-* Devekoped by Strafe_Stopper
+* Developed by Strafe_Stopper
 * strafestopper@gmail.com
 * https://github.com/StrafeStopper/Stradex
 *
