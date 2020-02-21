@@ -15,8 +15,18 @@
 #include "menu.h"
 #include "text.h"
 #include <string>
+#include <sstream>
 #include <cmath>
 
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
 
 //file for handling the text stream in the engine
 
@@ -72,7 +82,7 @@ void renderTextStream(SDL_Rect camera)
 
 void renderBuildNumber(int b)
 {
-  std::string bs = std::to_string(b);
+  std::string bs = patch::to_string(b);
   SDL_Rect textView;
   textView.x = SCREEN_WIDTH - 130;
   textView.y = 30;
