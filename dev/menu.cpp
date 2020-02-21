@@ -16,6 +16,7 @@
 #include "text.h"
 #include <string>
 #include <cmath>
+//test comment
 
 
 SDL_Rect* textClip = &text_[0];
