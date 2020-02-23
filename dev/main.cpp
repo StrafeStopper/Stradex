@@ -60,7 +60,6 @@ int build_number = 0;
 
 int main(int argc, char* args[])
 {
-	printf("temp test\n");
 	printf("Welcome to the <Light> development project!\nCreated and developed by Strafe_Stopper\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
 	//load all the settings
 	loadSettings("settings/settings.txt");
