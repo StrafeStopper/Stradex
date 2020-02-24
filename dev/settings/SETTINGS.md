@@ -18,8 +18,8 @@
 02. PLAYER_VEL
   * Default for `PERSPECTIVE_STYLE = 0` is `191`
   * Default for `PERSPECTIVE_STYLE = 1` is `4`
-  * Multiply by `50` for `PERSPECTIVE_STYLE` of `0`
-  * Divide by `50` for `PERSPECTIVE_STYLE` of `1`
+  * Multiply by `50` for `PERSPECTIVE_STYLE = 0`
+  * Divide by `50` for `PERSPECTIVE_STYLE = 1`
 
 03. PERSPECTIVE_STYLE
   * 0 = birds eye (3rd person)
