@@ -412,7 +412,7 @@ int close(Tile* tiles[])
 {
 	//shut everything down
 	//doesnt need to be changed because it just destroys all of the things
-	printf("\nShutting down...\nDetroying textures and renderers...\n");
+	printf("\nShutting down...\nDestroying textures and renderers...\n");
 	SDL_DestroyTexture(texture);
 	texture = NULL;
 	playerMain.free();
