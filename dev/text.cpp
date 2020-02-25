@@ -47,9 +47,9 @@ void textStream(std::string tts) /*tts stands for text to stream */
 {
   for (int i = 0; i < 6; i++)
   {
-    if (tts == textBuffer[i])
+    if (tts == textBuffer[i-1 || i == 0])
     {
-      //do noting
+      //do nothing
     } else
     textBuffer[i] = tts;
   }
