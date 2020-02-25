@@ -16,6 +16,7 @@
 #include "text.h"
 #include <string>
 #include <sstream>
+#include <iostream>
 #include <cmath>
 
 namespace patch
@@ -43,13 +44,15 @@ cTexture buildText;
 
 
 //this function loads the text to be rendered to the stream
-void textStream(std::string tts) /*tts stands for text to stream */
+void textStream(std::string tts) /* tts stands for text to stream */
 {
   for (int i = 0; i < 6; i++)
   {
-    if (tts == textBuffer[i-1 || i == 0])
+    //std::cout << textBuffer[i];
+    if (tts == textBuffer[i])
     {
       //do nothing
+      //printf("this should be doing nothing\n");
     } else
     textBuffer[i] = tts;
   }
