@@ -1,0 +1,6 @@
+jumping bug
+  -check for clip above
+  -find y coordinate
+  -only jump to the max y value available without clipping
+
+  
