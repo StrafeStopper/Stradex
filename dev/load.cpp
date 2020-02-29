@@ -108,9 +108,12 @@ bool cTexture::loadFromFile(std::string path)
 	printf("Failed to create texture from surface. SDL Error: %s\n", SDL_GetError());
 	hWidth = loadedSurface->w;
 	hHeight = loadedSurface->h;
-	SDL_FreeSurface(loadedSurface);
-	hTexture = newTexture;
 
+	hTexture = newTexture;
+	//SDL_DestroyTexture(newTexture);
+	//newTexture = NULL;
+	//SDL_FreeSurface(loadedSurface);
+	//loadedSurface = NULL;
 	return hTexture != NULL;
 }
 
@@ -470,6 +473,26 @@ void player::handleEvent( SDL_Event& e )
 			velX += PLAYER_VEL;
 			flipType = SDL_FLIP_NONE;
 			break;
+
+			/*case SDLK_UP:
+				if (!PERSPECTIVE_STYLE)
+				velY -= PLAYER_VEL;
+				break;
+
+			case SDLK_DOWN:
+				if (!PERSPECTIVE_STYLE)
+				velY += PLAYER_VEL;
+				break;
+
+			case SDLK_LEFT:
+				velX -= PLAYER_VEL;
+				flipType = SDL_FLIP_HORIZONTAL;
+				break;
+
+			case SDLK_RIGHT:
+				velX += PLAYER_VEL;
+				flipType = SDL_FLIP_NONE;
+				break;*/
 		case SDLK_e:
 			//if the player presses 'e' while in a tile with collision type '2' do a thing
 			activate();
