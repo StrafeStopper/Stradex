@@ -474,7 +474,7 @@ void player::handleEvent( SDL_Event& e )
 			flipType = SDL_FLIP_NONE;
 			break;
 
-			/*case SDLK_UP:
+			case SDLK_UP:
 				if (!PERSPECTIVE_STYLE)
 				velY -= PLAYER_VEL;
 				break;
@@ -492,7 +492,8 @@ void player::handleEvent( SDL_Event& e )
 			case SDLK_RIGHT:
 				velX += PLAYER_VEL;
 				flipType = SDL_FLIP_NONE;
-				break;*/
+				break;
+
 		case SDLK_e:
 			//if the player presses 'e' while in a tile with collision type '2' do a thing
 			activate();
@@ -519,8 +520,21 @@ void player::handleEvent( SDL_Event& e )
 			velY -= PLAYER_VEL;
 			break;
 
+			case SDLK_UP:
+				if (!PERSPECTIVE_STYLE)
+				velY += PLAYER_VEL;
+				break;
+
+			case SDLK_DOWN:
+				if (!PERSPECTIVE_STYLE)
+				velY -= PLAYER_VEL;
+				break;
+
 		case SDLK_a: velX = 0; break;
 		case SDLK_d: velX = 0; break;
+
+		case SDLK_LEFT: velX = 0; break;
+		case SDLK_RIGHT: velX = 0; break;
         }
     }
 }
