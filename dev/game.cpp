@@ -277,8 +277,9 @@ void level1()
 
 
     //print text to the screen
-    textStream("text stream test");
-    textStream("test 2");
+    //textStream("text stream test");
+    //textStream("test 2");
+    
     renderTextStream(camera);
     SDL_RenderSetViewport(renderer, &screenSpace);
     renderBuildNumber(build_number);
