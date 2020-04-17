@@ -39,6 +39,7 @@ extern int ACTI_0;
 extern int ACTI_1;
 extern int ACTI_2;
 extern int ACTI_3;
+extern bool ACTI_BOOL;
 
 
 class Tile

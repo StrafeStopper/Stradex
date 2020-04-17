@@ -122,6 +122,7 @@ int TILE_GREY = 1;
 int TILE_BLUE = 2;
 int TILE_RED = 3;
 int TILE_GREEN = 4;
+bool ACTI_BOOL = 0;
 
 
 Tile::Tile( int x, int y, int tileType )
@@ -319,6 +320,21 @@ bool touchesWall( SDL_Rect box, Tile* tiles[] )
                 return 1;
             }
         }
+
+				if ( ACTI_BOOL != 1 )
+				{
+				if (  (( tiles[ i ]->getType() == TILE_BLUE ))  )
+				{
+						if( checkCollision( box, tiles[ i ]->getBox() ) )
+						{
+								bottomTile = i;
+								return 1;
+							}
+				}
+			}
+
+
+
     }
 
     return 0;

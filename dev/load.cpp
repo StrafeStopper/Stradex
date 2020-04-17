@@ -634,18 +634,31 @@ int player::activationTile( SDL_Rect box, Act* acti[] )
         {
             if( checkCollision( box, acti[ i ]->getBox() ) )
             {
+								if ( ACTI_BOOL == 0)
+							  ACTI_BOOL = 1;
+								else if ( ACTI_BOOL == 1)
+								ACTI_BOOL = 0;
+
                 return 1;
             }
         } else if ((acti[ i ]->getType() == 02))
 				{
 					if( checkCollision( box, acti[ i ]->getBox() ) )
 					{
+						if ( ACTI_BOOL == 0)
+						ACTI_BOOL = 1;
+						else if ( ACTI_BOOL == 1)
+						ACTI_BOOL = 0;
 							return 2;
 					}
 				} else if ((acti[ i ]->getType() == 03))
 				{
 					if( checkCollision( box, acti[ i ]->getBox() ) )
 					{
+						if ( ACTI_BOOL == 0)
+						ACTI_BOOL = 1;
+						else if ( ACTI_BOOL == 1)
+						ACTI_BOOL = 0;
 							return 3;
 					}
 				}
