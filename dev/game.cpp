@@ -41,9 +41,9 @@ SDL_Rect zeroClip;
 
 Timer stepTimer;
 
-float timeStep;
 
-int roofTest;
+
+
 
 double angle = 0;
 
@@ -113,7 +113,7 @@ void activate()
   }
 }
 
-SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+
 void level1()
 {
     //start point for the main level
@@ -122,6 +122,7 @@ void level1()
     SDL_ShowWindow(window);
     SDL_RenderClear(renderer);
 
+    SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     startTextBox.x = 300;
     startTextBox.y = 200;
     startTextBox.w = 700;
@@ -184,7 +185,7 @@ void level1()
           //set physics ticks for frame independent movement
           //change the number for different physics speed
           //it works fine like this so try not to change it
-          timeStep = stepTimer.getTicks() / 1000.f;
+          float timeStep = stepTimer.getTicks() / 1000.f;
 
           //move the player and check for collision
           player1.move(tileSet, timeStep);
@@ -222,7 +223,7 @@ void level1()
             }
           }
 
-          roofTest = 0;
+          int roofTest = 0;
           //detects roof collision and if the player can be safly teleported down to the ground if clipped
           //this doesnt work very well yet
           roofTest = player1.roofClip();
@@ -278,7 +279,7 @@ void level1()
     //print text to the screen
     //textStream("text stream test");
     //textStream("test 2");
-
+    
     renderTextStream(camera);
     SDL_RenderSetViewport(renderer, &screenSpace);
     renderBuildNumber(build_number);

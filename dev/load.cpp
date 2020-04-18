@@ -307,20 +307,14 @@ void mButton::render()
 	buttonsSprite.render(mPos.x, mPos.y, &buttonsClip[mButtonCurrent], NULL, NULL, SDL_FLIP_NONE);
 }
 
-
-int x = 0;
-int y = 0;
-
-bool inside = 1;
-
 bool mButton::handleMouseEvent(SDL_Event* e, int buttonName)
 {
-	SDL_GetMouseState( &x, &y );
 	//check for mouse events on the buttons
 	//changes the look of the button as needed
 	 if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP )
 	 {
-
+		 int x, y; SDL_GetMouseState( &x, &y );
+		 bool inside = 1;
 
 		  if( x < mPos.x )
 			{
