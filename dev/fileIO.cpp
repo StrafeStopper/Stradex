@@ -52,7 +52,7 @@ int loadBuildNumber(std::string path)
   fstream file;
   file.open(path.c_str(), ios::in);
   file >> build;
-  cout << build << endl;
+  cout << "Current build number: " << build << endl;
   file.close();
   return build;
 

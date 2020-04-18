@@ -83,10 +83,13 @@ void renderTextStream(SDL_Rect camera)
 
 }
 
+std::string bs;
+SDL_Rect textView;
+
 void renderBuildNumber(int b)
 {
-  std::string bs = patch::to_string(b);
-  SDL_Rect textView;
+  bs = patch::to_string(b);
+
   textView.x = SCREEN_WIDTH - 130;
   textView.y = 30;
   textView.w = 129;
@@ -97,4 +100,5 @@ void renderBuildNumber(int b)
   SDL_RenderSetViewport(renderer, &textView);
   buildText.render(0, 0, NULL, NULL, NULL, SDL_FLIP_NONE);
   SDL_RenderSetViewport(renderer, &screenSpace);
+  bs = " ";
 }
