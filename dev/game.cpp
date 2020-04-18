@@ -279,10 +279,10 @@ void level1()
     //print text to the screen
     //textStream("text stream test");
     //textStream("test 2");
-    
-    renderTextStream(camera);
+
+    //renderTextStream(camera);
     SDL_RenderSetViewport(renderer, &screenSpace);
-    renderBuildNumber(build_number);
+    //renderBuildNumber(build_number);
     SDL_RenderSetViewport(renderer, &screenSpace);
 
     //show the completed render
