@@ -15,7 +15,9 @@ extern int BUTTON_WIDTH;
 extern int BUTTON_HEIGHT;
 extern int TOTAL_BUTTONS;
 
-
+extern int x;
+extern int y;
+extern bool inside;
 
 class cTexture {
 	//texture wrapper class

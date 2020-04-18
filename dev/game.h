@@ -27,6 +27,9 @@ extern double angle;
 
 extern SDL_Rect screenSpace;
 
+extern float timeStep;
+
+extern int roofTest;
 
 
 
