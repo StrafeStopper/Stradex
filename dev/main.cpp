@@ -60,7 +60,7 @@ int build_number = 0;
 
 int main(int argc, char* args[])
 {
-	printf("Welcome to the <Light> development project!\nCreated and developed by Strafe_Stopper\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
+	printf("Welcome to the <STRADEX> development project!\nCreated and developed by Strafe_Stopper\nUsing the SDL graphic rendering API in C++\nBooting up C++ libraries...\nDone!\n");
 	//load all the settings
 	loadSettings("settings/settings.txt");
 	//loads the build number
@@ -78,6 +78,6 @@ int main(int argc, char* args[])
 	close(tileSet);
 	printf("SDL successfully shutdown!\n\nPress [enter] to exit...\n");
 	std::cin.get();
-	printf("Exiting <Light>...\n");
+	printf("Exiting <STRADEX>...\n");
 	return 0;
 }
