@@ -11,7 +11,7 @@ The engine can only be developed and compiled in Linux
       * run `install.sh` to install the needed dependencies
 
     * Windows:
-      * run `[update with install script]` to install the needed dependencies
+      * run `[this is placeholder text for a future script name]` to install the needed dependencies
       * will have an install script eventually
 
 2. Compiling:
@@ -20,16 +20,16 @@ The engine can only be developed and compiled in Linux
 
     * Windows
       * run `compile.bat` to compile
-      * make will work in the future
+      * 'make' will work in the future
 
 3. Running the engine:
     * Linux:
-      * run `./light`
+      * run `./Stradex` in a linux terminal
 
     * Windows:
-      * run `wine light.exe` in linux
-      * double click on `stradex.exe` in windows
+      * run `wine Stradex.exe` in a linux terminal
+      * double click on `Stradex.exe` icon in windows
 
-The Linux executable runs in Linux only, using an emulator on Windows has not been tested.
+The Linux executable runs in Linux only, using an emulator on Windows has not been tested thoroughly.
 
-The Windows executable runs natively in Windows with the most up-to-date DLL's.
+The Windows executable runs natively in Windows with the latest DLL files included in the directory.
