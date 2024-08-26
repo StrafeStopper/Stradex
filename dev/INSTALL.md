@@ -8,7 +8,7 @@ The engine can only be developed and compiled in Linux
 
 1. Installing dependencies:
     * Linux:
-      * run `install.sh` to install the needed dependencies
+      * run `sudo install.sh` to install the needed dependencies
 
     * Windows:
       * run `[this is placeholder text for a future script name]` to install the needed dependencies

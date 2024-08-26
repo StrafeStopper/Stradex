@@ -21,7 +21,7 @@ all:
 linux : $(OBJS)
 	g++ $(OBJS) $(COMPILER_FLAGS) $(LINUX_FLAGS) -o $(LINUX_OBJ)
 	@echo "Updating the build number"
-	settings/build_number.sh
+	python settings/build_number.py
 
 
 #Compile for windows
