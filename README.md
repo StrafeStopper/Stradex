@@ -9,6 +9,8 @@ Refer to `INSTALL.md` in the branch you want to run
 
 This project is open source right now but will not be once alpha is released
 
+It is important to note that nothing (including install scripts) are expected to work correctly.
+
 Contact me via email for questions about development or anything else to do with the project
 
 Email: strafestopper@gmail.com
